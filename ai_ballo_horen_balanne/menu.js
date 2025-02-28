@@ -184,3 +184,4 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
         reply(`*⚠ An error occurred: ${e.message}*`);
     }
 });
+
