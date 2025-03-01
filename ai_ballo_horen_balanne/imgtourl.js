@@ -20,7 +20,7 @@ try{
 
   let q = m.quoted ? m.quoted : m;
   let mime = (q.msg || q).mimetype || '';
-  if (!mime) throw `_\`img එකකට රිප්ලයි කරාපන් බන්🔷\`_`;
+  if (!mime) throw `_\`img එකකට රිප්ලයි කරපන් බන්🔷\`_`;
  // if (!args[0]) throw ` \`\`\`[ 🌺 ] Ingresa un texto para guardar la imagen. Ejemplo:\n${usedPrefix + command} Sylph\`\`\``
 
   let media = await q.download();
