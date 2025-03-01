@@ -41,7 +41,7 @@ try{
     let link = response.data.data.url;
     fs.unlinkSync(tempFilePath);
 
-    m.reply(`*File Size* ${media.length} Byte(s)\n *IMG URL* ${link}\n\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`);
+    m.reply(` *File Size* ${media.length} Byte(s)\n\n *IMG URL* ${link}\n\n > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`);
     
 } catch (e) {
 reply(`${e}`)
