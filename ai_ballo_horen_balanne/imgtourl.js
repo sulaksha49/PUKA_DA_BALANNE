@@ -20,11 +20,11 @@ try{
 
   let q = m.quoted ? m.quoted : m;
   let mime = (q.msg || q).mimetype || '';
-  if (!mime) throw `_\`img එකකට රිප්ලයි කරපන් බන්🔷\`_`;
+  if (!mime) throw `_\`img එකට රිප්ලයි කරපන්🔷\`_`;
  // if (!args[0]) throw ` \`\`\`[ 🌺 ] Ingresa un texto para guardar la imagen. Ejemplo:\n${usedPrefix + command} Sylph\`\`\``
 
   let media = await q.download();
-  let tempFilePath = path.join(os.tmpdir(), 'sahastech');
+  let tempFilePath = path.join(os.tmpdir(), 'SulaMd');
   fs.writeFileSync(tempFilePath, media);
 
   let form = new FormData();
@@ -41,7 +41,7 @@ try{
     let link = response.data.data.url;
     fs.unlinkSync(tempFilePath);
 
-    m.reply(`⛣ *file size* ${media.length} Byte(s)\n⛣ *𝚒𝚖𝚐 𝚞𝚛𝚕* ${link}\n\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`);
+    m.reply(`*File Size* ${media.length} Byte(s)\n *IMG URL* ${link}\n\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`);
     
 } catch (e) {
 reply(`${e}`)
