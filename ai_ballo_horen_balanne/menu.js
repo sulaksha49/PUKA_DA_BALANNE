@@ -61,6 +61,11 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *╭────❒⁠⁠⁠⁠* *📥 DOWNLOADER-MENU 📥* *❒⁠⁠⁠⁠* 
 *┋* *song*
 *┋* *video*
+*┋* *tiktok*
+*┋* *fb*
+*┋* *insta*
+*┋* *mediafire*
+*┋* *apk*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
@@ -73,6 +78,7 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *tiktokstalk*
 *┋* *tiktoksearch*
 *┋* *movie*
+*┋* *img*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
@@ -82,7 +88,6 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
                     case '3': // AI MENU
                         responseText = `
 *╭────❒⁠⁠⁠⁠* *🧠 AI-MENU 🧠* *❒⁠⁠⁠⁠* 
-*┋* *ai*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
@@ -127,6 +132,7 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *╭────❒⁠⁠⁠⁠* *🔄 CONVERTER-MENU 🔄* *❒⁠⁠⁠⁠* 
 *┋* *tts2*
 *┋* *tourl*
+*┋* *sticker*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
