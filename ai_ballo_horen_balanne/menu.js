@@ -123,6 +123,7 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *alive*
 *┋* *menu*
 *┋* *ping*
+*┋* *owner*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
