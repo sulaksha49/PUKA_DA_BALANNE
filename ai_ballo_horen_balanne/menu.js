@@ -66,6 +66,8 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *insta*
 *┋* *mediafire*
 *┋* *apk*
+*┋* *ytpost*
+*┋* *twitter*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
