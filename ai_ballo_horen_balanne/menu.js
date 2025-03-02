@@ -90,6 +90,9 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
                     case '3': // AI MENU
                         responseText = `
 *╭────❒⁠⁠⁠⁠* *🧠 AI-MENU 🧠* *❒⁠⁠⁠⁠* 
+*┋* *ai*
+*┋* *openai*
+*┋* *deepseek*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
