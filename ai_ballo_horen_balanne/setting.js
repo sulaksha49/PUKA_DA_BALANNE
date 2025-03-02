@@ -123,10 +123,10 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
                         reply(".update READ_MESSAGE:false");
                     break;
                     case '8.1':    
-                        reply(".update config.AUTO_REACT:true");
+                        reply(".update AUTO_REACT:true");
                     break;
                     case '8.2':    
-                        reply(".update config.AUTO_REACT:false");
+                        reply(".update AUTO_REACT:false");
                     break;
                     case '9.1':    
                         reply(".update ANTI_LINK:true");
