@@ -57,6 +57,12 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
 > *9️⃣.1️⃣ Anti Link On*
 > *9️⃣.2️⃣ Anti Link Off*
 > *9️⃣.3️⃣ Anti Link Remove*
+╭══════════════════════○
+┣━ *𝗔𝗨𝗧𝗢 𝗦𝗧𝗔𝗧𝗨𝗦 𝗥𝗘𝗔𝗖𝗧 & 𝗥𝗘𝗣𝗟𝗬 😈*
+> *🔟. 1️⃣ Status React On*
+> *🔟. 2️⃣ Status React Off*
+> *🔟. 3️⃣ Status Reply On*
+> *🔟. 4️⃣ Status Reply Off*
 ╰═══════════════════════○
 
 
@@ -139,6 +145,12 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
                     case '9.3':    
                         reply(".update ANTI_LINK:false");
                         reply(".update ANTI_LINKK:false");
+                    break;
+                    case '10.1':
+                        reply(".update AUTO_STATUS_REACT:true");
+                    break;
+                    case '10.2':
+                        reply(".update AUTO_STATUS_REACT:fales");
                     break;
                     default:
                         reply("Invalid option. Please select a valid option🔴");
