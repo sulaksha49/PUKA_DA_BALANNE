@@ -152,6 +152,13 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
                     case '10.2':
                         reply(".update AUTO_REACT_STATUS:fales");
                     break;
+                    case '10.3':
+                        reply(".update AUTO_STATUS_REPLY:true");
+                    break;
+                    case '10.4':
+                        reply(".update AUTO_STATUS_REPLY:fales");
+                    break;
+
                     default:
                         reply("Invalid option. Please select a valid option🔴");
                 }
