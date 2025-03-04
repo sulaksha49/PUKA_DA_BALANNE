@@ -1,5 +1,8 @@
-const { cmd } = require('../command');
+const config = require('../config')
 const axios = require('axios');
+const { cmd, commands } = require('../command')
+const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
+const fs = require('fs');
 
 cmd(
   {
