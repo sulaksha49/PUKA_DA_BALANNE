@@ -93,6 +93,7 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *ai*
 *┋* *openai*
 *┋* *deepseek*
+*┋* *aiimg*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
@@ -104,6 +105,8 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *╭────❒⁠⁠⁠⁠* *👨‍💻 OWNER-MENU 👨‍💻* *❒⁠⁠⁠⁠* 
 *┋* *update*
 *┋* *restart*
+*┋* *block*
+*┋* *unblock*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
@@ -114,6 +117,7 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
                         responseText = `
 *╭────❒⁠⁠⁠⁠* *👥 GROUP-MENU 👥* *❒⁠⁠⁠⁠* 
 *┋* *kickall*
+*┋* *tagall*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
