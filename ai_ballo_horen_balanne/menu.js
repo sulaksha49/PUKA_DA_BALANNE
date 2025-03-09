@@ -81,6 +81,7 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *tiktoksearch*
 *┋* *movie*
 *┋* *img*
+*┋* *srepo*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
