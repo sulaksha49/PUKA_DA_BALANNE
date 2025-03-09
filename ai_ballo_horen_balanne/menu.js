@@ -81,6 +81,7 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *tiktoksearch*
 *┋* *movie*
 *┋* *img*
+*┋* *rw*
 *┋* *srepo*
 *┋* *Coming Soon*
 *╰───────────────────❒*
@@ -119,6 +120,7 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *╭────❒⁠⁠⁠⁠* *👥 GROUP-MENU 👥* *❒⁠⁠⁠⁠* 
 *┋* *kickall*
 *┋* *tagall*
+*┋* *add*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
