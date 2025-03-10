@@ -185,6 +185,7 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
                         responseText = `
 *╭────❒⁠⁠⁠⁠* *🌐 OTHER-MENU 🌐* *❒⁠⁠⁠⁠* 
 *┋* *pair*
+*┋* *getpp*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
