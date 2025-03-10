@@ -40,11 +40,11 @@ _🔢 Reply Below Number :_
 19 || Modern Gold
 20 || Matrix
 
-> ᴩʀᴏᴊᴇᴄᴛꜱ ᴏꜰ ᴅɪᴅᴜʟᴀ ʀᴀꜱʜᴍɪᴋᴀ`
+> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
 
         const fdChannel = {
-            newsletterJid: "@newsletter",
-            newsletterName: "Didula MD V2 💚",
+            newsletterJid: "120363385281017920@newsletter",
+            newsletterName: "𝐒𝐔𝐋𝐀-𝐌𝐃",
             serverMessageId: 999
         };
         const contextMsg = {
@@ -54,7 +54,7 @@ _🔢 Reply Below Number :_
             forwardedNewsletterMessageInfo: fdChannel
         };
         const msgBody = {
-            image: {url:`https://i.ibb.co/tC37Q7B/20241220-122443.jpg`},
+            image: {url:`https://i.ibb.co/pvX8tJdL/SulaMd.jpg`},
             caption: logoMsg,
             contextInfo: contextMsg
         };
@@ -185,7 +185,7 @@ const logo19 = `https://en.ephoto360.com/modern-gold-5-215.html`;
 const logo20 = `https://en.ephoto360.com/matrix-text-effect-154.html`;
 
 const apilink2 = 'https://api-pink-venom.vercel.app';
-const caption = `> ᴩʀᴏᴊᴇᴄᴛꜱ ᴏꜰ ᴅɪᴅᴜʟᴀ ʀᴀꜱʜᴍɪᴋᴀ`;
+const caption = `> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
 
 
 
