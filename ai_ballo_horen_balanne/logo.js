@@ -11,13 +11,11 @@ async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, send
     try {
         if(!q) return reply("*_Please give me a text._*")
 
-        let logoMsg = `*𝐒𝐔𝐋𝐀-𝐌𝐃 LOGO MAKER_*
+        let logoMsg = `*𝐒𝐔𝐋𝐀-𝐌𝐃 𝐋𝐎𝐆𝐎*
 
-───────────────────
 *Text :* ${q}
-───────────────────
 
-_🔢 Reply Below Number :_
+*🔢 Reply Below Number :*
 
  1 || Black Pink
  2 || Black Pink 2
