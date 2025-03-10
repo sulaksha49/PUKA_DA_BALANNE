@@ -22,7 +22,7 @@ cmd({
         // Send the user's profile picture
         await conn.sendMessage(m.chat, {
             image: { url: userPicUrl },
-            caption: "🖼️ Here is the profile picture of the specified user."
+            caption: "🖼️ Here is the profile picture of the specified user.\n\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈"
         });
     } catch (e) {
         console.error("Error fetching user profile picture:", e);
