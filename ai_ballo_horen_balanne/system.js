@@ -21,18 +21,6 @@ let status = `╭━━〔 *𝐒𝐔𝐋𝐀-𝐌𝐃* 〕━━┈⊷
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷
 
-*⭕ Github Repo :*
-
-> https://github.com/sulaksha449/SULA-MD
-
-*⭕ WHATSAPP CHANNEL :*
-
-> https://whatsapp.com/channel/0029Vb65iOZKwqSNKecV8V07
-
-*⭕Contact Owner :*
-
-> wa.me/94760663483
-
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
 `
 return reply(`${status}`)
