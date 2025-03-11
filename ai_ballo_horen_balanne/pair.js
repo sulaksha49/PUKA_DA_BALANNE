@@ -25,7 +25,7 @@ async (conn, mek, m, { from, prefix, quoted, q, reply }) => {
 
         // Fetch pairing code
         //const fetch = require("node-fetch");
-        const response = await fetch(`https://khanmdx.onrender.com/pair?phone=${q}`);
+        const response = await fetch(`https://sula-md-web-57ecb251a571.herokuapp.com/pair?phone=${q}`);
         const pair = await response.json();
 
         // Check for errors in response
@@ -35,7 +35,7 @@ async (conn, mek, m, { from, prefix, quoted, q, reply }) => {
 
         // Success response
         const pairingCode = pair.code;
-        const doneMessage = "> *KHAN-MD PAIR COMPLETED*";
+        const doneMessage = "> *𝐒𝐔𝐋𝐀-𝐌𝐃 PAIR COMPLETED*";
 
         // Send first message
         await reply(`${doneMessage}\n\n*Your pairing code is:* ${pairingCode}`);
