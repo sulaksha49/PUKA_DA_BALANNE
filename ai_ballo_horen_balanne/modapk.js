@@ -78,8 +78,8 @@ cmd(command, async (bot, message, options, { from, prefix, q, l, isDev, reply })
           name: "cta_url",
           buttonParamsJson: JSON.stringify({
             display_text: "Join Our Channel",
-            url: "https://whatsapp.com/channel/0029VahMZasD8SE5GRwzqn3Z",
-            merchant_url: "https://whatsapp.com/channel/0029VahMZasD8SE5GRwzqn3Z"
+            url: "https://whatsapp.com/channel/0029Vb65iOZKwqSNKecV8V07",
+            merchant_url: "https://whatsapp.com/channel/0029Vb65iOZKwqSNKecV8V07"
           })
         },
         {
