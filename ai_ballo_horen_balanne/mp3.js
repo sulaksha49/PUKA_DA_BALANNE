@@ -1,88 +1,51 @@
-const axios = require("axios");
-const { cmd } = require("../command");
-
 cmd({
-    pattern: "mp3",
-    desc: "Download YouTube audio as MP3",
-    category: "download",
-    use: ".mp3 <YouTube URL>",
+    pattern: "song",
+    alias: ["ytmp3", "yta"],
     react: "🎵",
+    desc: "Download Youtube song",
+    category: "download",
+    use: '.song < Yt url or Name >',
     filename: __filename
-},
-async (conn, mek, m, { from, q, reply }) => {
+}, async (conn, mek, m, { from, prefix, quoted, q, reply }) => {
     try {
-        if (!q) return reply("❌ Please provide a YouTube URL!");
+        if (!q) return await reply("⚠️ Please provide a YouTube URL or song name!");
 
-        const apiUrl = `https://apis.davidcyriltech.my.id/download/ytmp3?url=${encodeURIComponent(q)}`;
-        const response = await axios.get(apiUrl);
+        const videos = await yts(q);
+        if (!videos.videos.length) return reply("❌ No results found!");
 
-        if (response.data && response.data.result) {
-            const { title, thumbnail, duration, views, channel, uploadDate, url: mp3Url } = response.data.result;
+        const video = videos.videos[0];
+        const response = await fetch(`https://apis.davidcyriltech.my.id/download/ytmp3?url=${video.url}`);
+        const data = await response.json();
 
-            let caption = `*🎵 YOUTUBE MP3 DOWNLOADER 🎵*\n\n` +
-                          `🎶 *Title:* ${title}\n` +
-                          `📺 *Channel:* ${channel}\n` +
-                          `🕒 *Duration:* ${duration}\n` +
-                          `📅 *Uploaded:* ${uploadDate}\n` +
-                          `👁 *Views:* ${views}\n\n` +
-                          `🎧 *Your MP3 is being processed...*\n` +
-                          `|| 01 || *MP3 FORMAT* 🎶\n` +
-                          `|| 02 || *DOCUMENT FORMAT* 📄\n` +
-                          `|| 03 || *NORMAL DOWNLOAD* 🗂️`;
+        if (!data.status) throw "Download failed";
 
-            const sentMsg = await conn.sendMessage(from, {
-                image: { url: thumbnail },
-                caption: caption
-            }, { quoted: mek });
+        let ytmsg = `╭━━━〔 𝐒𝐔𝐋𝐀-𝐌𝐃 〕━━━┈⊷
 
-            const searchMessageId = sentMsg.key.id;
+╭━━❐━⪼
+┇🎧 *Title:* ${video.title}
+┇👀 *Views:* ${video.views}
+┇👤 *Channel:* ${video.author.name}
+┇📅 *Published:* ${video.ago}
+╰━━❑━⪼
 
-            const handleFormatSelection = async (messageUpdate) => {
-                const message = messageUpdate.messages[0];
-                if (!message.message || !message.message.extendedTextMessage) return;
+> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
 
-                const isReplyToSearch = message.message.extendedTextMessage.contextInfo.stanzaId === searchMessageId;
-                if (!isReplyToSearch) return;
-
-                const selectedText = message.message.conversation || message.message.extendedTextMessage.text.trim();
-
-                await conn.sendMessage(from, { react: { text: "🎵", key: message.key } });
-
-                switch (selectedText) {
-                    case '01': // MP3 format
-                        await conn.sendMessage(from, {
-                            audio: { url: mp3Url },
-                            mimetype: "audio/mp3",
-                            ptt: false
-                        }, { quoted: mek });
-                        break;
-
-                    case '02': // Document format
-                        await conn.sendMessage(from, {
-                            document: { url: mp3Url },
-                            mimetype: "application/pdf",
-                            caption: `*🎵 Downloading as Document:* ${title}`
-                        }, { quoted: mek });
-                        break;
-
-                    case '03': // Normal download
-                        await conn.sendMessage(from, {
-                            text: `*📂 Normal Download Link:*\n${mp3Url}`
-                        }, { quoted: mek });
-                        break;
-
-                    default:
-                        reply("❌ Invalid option selected.");
+        await conn.sendMessage(from, {
+            audio: { url: data.output },
+            mimetype: "audio/mpeg",
+            contextInfo: {
+                externalAdReply: {
+                    title: video.title,
+                    body: video.author.name,
+                    thumbnail: { url: video.thumbnail },
+                    mediaType: 2,
+                    mediaUrl: video.url
                 }
-            };
+            }
+        }, { quoted: qtoko });
 
-            conn.on('message-update', handleFormatSelection);
-
-        } else {
-            reply("❌ Failed to get MP3 link!");
-        }
-    } catch (error) {
-        console.error(error);
-        reply("❌ Error processing your request.");
+    } catch (e) {
+        console.error(e);
+        reply("❌ An error occurred while downloading. Please try again later.");
     }
 });
