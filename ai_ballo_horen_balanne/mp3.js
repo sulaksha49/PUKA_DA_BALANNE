@@ -1,7 +1,7 @@
 const config = require('../config');
 const { cmd } = require('../command');
-const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js'); 
-
+const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js');   
+       
 // play
 
 cmd({ 
@@ -43,7 +43,7 @@ cmd({
         await conn.sendMessage(from, { image: { url: data.result.thumbnail || '' }, caption: ytmsg }, { quoted: mek });
         
         // Send video file
-        await conn.sendMessage(from, { video: { url: data.result.download_url }, mimetype: "audio/mp3" }, { quoted: mek });
+        await conn.sendMessage(from, { audio: { url: data.result.download_url }, mimetype: "audio/mp3" }, { quoted: mek });
         
         // Send document file (optional)
         await conn.sendMessage(from, { 
