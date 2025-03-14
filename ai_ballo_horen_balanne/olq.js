@@ -20,7 +20,7 @@ async (conn, mek, m, { from, quoted, args, reply }) => {
             "Geography",
            "Sinhala",
 "Budhist",
-"" //  Thava dpnko mona hari
+ //  Thava dpnko mona hari
         ];
 
         let topicMessage = "📚 Please select a topic by replying with the corresponding number:\n\n";
