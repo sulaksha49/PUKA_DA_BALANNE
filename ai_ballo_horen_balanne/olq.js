@@ -3,123 +3,97 @@ const axios = require('axios');
 
 cmd({
     pattern: "olq",
-    desc: "Generate a question based on a selected topic.",
-    alias: ["generatequestion", "topicquestion"],
-    category: "quiz",
+    desc: "Generate a question based on the selected topic.",
+    alias: ["question", "quiz"],
+    category: "education",
     react: "📝",
     filename: __filename
 }, 
-async (conn, mek, m, { from, quoted, args, reply }) => {
+async (conn, mek, m, { from, quoted, args, q, reply }) => {
     try {
-        // Ask the user for a topic
-        const topics = [
-            "ICT",
-            "Maths",
-            "Science",
-            "History",
-            "Geography",
-           "Sinhala",
-"Budhist",
- //  Thava dpnko mona hari
-        ];
+        // List of topics
+        const topics = ["maths", "science", "history", "geography", "literature"];
+        
+        // Check if a topic is provided
+        if (!q || !topics.includes(q.toLowerCase())) {
+            return reply(`Please select a topic from the following:\n${topics.map((topic, index) => `${index + 1}. ${topic}`).join('\n')}`);
+        }
 
-        let topicMessage = "📚 Please select a topic by replying with the corresponding number:\n\n";
-        topics.forEach((topic, index) => {
-            topicMessage += `${index + 1}. ${topic}\n`;
+        // React to show processing
+        await m.react("🔍");
+
+        // Step 1: Generate a question based on the selected topic
+        const topic = q.toLowerCase();
+        const apiResponse = await axios.get(`https://thenux-q-api.vercel.app/generate-question?topic=${topic}`, {
+            timeout: 10000
         });
 
-        // Send the topic selection message
+        // Validate API response
+        if (!apiResponse.data || !apiResponse.data.question) {
+            await conn.sendMessage(from, { react: { text: "❌", key: mek.key } });
+            return reply("Failed to generate a question. Please try again.");
+        }
+
+        const questionData = apiResponse.data;
+
+        // Prepare the question message
+        let questionMessage = `**${questionData.question}**\n\n`;
+        questionData.options.forEach((option, index) => {
+            questionMessage += `**${String.fromCharCode(65 + index)}.** ${option}\n`;
+        });
+
+        questionMessage += `\n*Reply with the option letter (A, B, C, D) to answer.*`;
+
+        // Send the question
         await conn.sendMessage(from, {
-            text: topicMessage,
-            footer: "Reply with the number of your chosen topic."
-        }, { quoted: mek });
+            text: questionMessage,
+            quoted: mek
+        });
 
-        // Create a handler for topic selection
-        const handleTopicSelection = async (topicUpdate) => {
-            const topicMessage = topicUpdate.messages[0];
-            if (!topicMessage.message) return;
+        // Create a handler for the answer selection
+        const handleAnswerSelection = async (answerUpdate) => {
+            const answerMessage = answerUpdate.messages[0];
+            if (!answerMessage.message) return;
 
-            // Extract the user's selected topic
-            const userSelection = topicMessage.message.conversation || topicMessage.message.extendedTextMessage?.text;
-            const selectedIndex = parseInt(userSelection) - 1;
+            // Check if this is a reply to our question message
+            const isReplyToQuestion = answerMessage.message.extendedTextMessage?.contextInfo?.stanzaId === mek.key.id;
 
-            // Validate selection
-            if (selectedIndex < 0 || selectedIndex >= topics.length) {
+            if (!isReplyToQuestion) return;
+
+            // Extract selected answer
+            const selectedAnswer = answerMessage.message.conversation || answerMessage.message.extendedTextMessage?.text;
+
+            // Validate answer
+            if (!["A", "B", "C", "D"].includes(selectedAnswer.toUpperCase())) {
                 await conn.sendMessage(from, {
-                    react: { text: "", key: topicMessage.key }
+                    react: { text: "❌", key: answerMessage.key }
                 });
-                return reply("❌ Invalid selection. Please choose a valid number from the list.");
+                return reply("Invalid selection. Please reply with A, B, C, or D.");
             }
 
-            const selectedTopic = topics[selectedIndex];
-
-            // React to the topic selection
-            await conn.sendMessage(from, {
-                react: { text: "", key: topicMessage.key }
-            });
-
-            // Step 2: Fetch the question based on the selected topic
-            const questionResponse = await axios.get(`https://thenux-q-api.vercel.app/generate-question?topic=${encodeURIComponent(selectedTopic)}`);
-
-            // Validate question response
-            if (!questionResponse.data || !questionResponse.data.question) {
-                return reply("❌ Failed to fetch the question. Please try again.");
+            // Check if the answer is correct
+            const correctAnswer = questionData.answer;
+            if (selectedAnswer.toUpperCase() === correctAnswer) {
+                await conn.sendMessage(from, {
+                    react: { text: "✅", key: answerMessage.key }
+                });
+                await reply("🎉 Correct answer! Well done!");
+            } else {
+                await conn.sendMessage(from, {
+                    react: { text: "❌", key: answerMessage.key }
+                });
+                await reply(`❌ Incorrect answer. The correct answer is **${correctAnswer}**.`);
             }
 
-            const questionData = questionResponse.data;
-
-            // Prepare the question message
-            let questionMessage = `**${questionData.question}**\n\n`;
-            questionData.options.forEach((option, index) => {
-                questionMessage += `(${String.fromCharCode(65 + index)}) ${option}\n`;
-            });
-
-            // Send the question to the user
-            await conn.sendMessage(from, {
-                text: questionMessage,
-                footer: "Reply with the letter corresponding to your answer (A, B, C, or D)."
-            });
-
-            // Create a handler for answer selection
-            const handleAnswerSelection = async (answerUpdate) => {
-                const answerMessage = answerUpdate.messages[0];
-                if (!answerMessage.message) return;
-
-                // Extract the user's answer
-                const userAnswer = answerMessage.message.conversation || answerMessage.message.extendedTextMessage?.text;
-
-                // Validate the answer
-                if (!["A", "B", "C", "D"].includes(userAnswer.toUpperCase())) {
-                    await conn.sendMessage(from, {
-                        react: { text: "", key: answerMessage.key }
-                    });
-                    return reply("❌ Invalid answer. Please reply with A, B, C, or D.");
-                }
-
-                // Check if the answer is correct
-                const correctAnswer = questionData.answer;
-                if (userAnswer.toUpperCase() === correctAnswer) {
-                    await conn.sendMessage(from, {
-                        react: { text: "", key: answerMessage.key }
-                    });
-                    return reply("🎉 Correct answer! Well done!");
-                } else {
-                    await conn.sendMessage(from, {
-                        react: { text: "", key: answerMessage.key }
-                    });
-                    return reply(`❌ Incorrect answer. The correct answer is: ${correctAnswer}.`);
-                }
-            };
-
-            // Listen for answer selection
-            conn.ev.on("messages.upsert", handleAnswerSelection);
+            // Remove event listener
+            conn.ev.off("messages.upsert", handleAnswerSelection);
         };
 
-        // Listen for topic selection
-        conn.ev.on("messages.upsert", handleTopicSelection);
+        // Listen for answer selection
+        conn.ev.on("messages.upsert", handleAnswerSelection);
 
     } catch (error) {
-        console.error("Error generating question:", error);
-        await reply("❌ An error occurred while generating the question. Please try again.");
+        console.error("Error processing question command:", error);
+        await reply("An error occurred while processing your request. Please try again.");
     }
 });
