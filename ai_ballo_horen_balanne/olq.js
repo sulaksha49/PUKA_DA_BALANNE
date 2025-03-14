@@ -46,7 +46,7 @@ async (conn, mek, m, { from, quoted, args, reply }) => {
             // Validate selection
             if (selectedIndex < 0 || selectedIndex >= topics.length) {
                 await conn.sendMessage(from, {
-                    react: { text: "❌", key: topicMessage.key }
+                    react: { text: "", key: topicMessage.key }
                 });
                 return reply("❌ Invalid selection. Please choose a valid number from the list.");
             }
@@ -55,7 +55,7 @@ async (conn, mek, m, { from, quoted, args, reply }) => {
 
             // React to the topic selection
             await conn.sendMessage(from, {
-                react: { text: "✅", key: topicMessage.key }
+                react: { text: "", key: topicMessage.key }
             });
 
             // Step 2: Fetch the question based on the selected topic
@@ -91,7 +91,7 @@ async (conn, mek, m, { from, quoted, args, reply }) => {
                 // Validate the answer
                 if (!["A", "B", "C", "D"].includes(userAnswer.toUpperCase())) {
                     await conn.sendMessage(from, {
-                        react: { text: "❌", key: answerMessage.key }
+                        react: { text: "", key: answerMessage.key }
                     });
                     return reply("❌ Invalid answer. Please reply with A, B, C, or D.");
                 }
@@ -100,12 +100,12 @@ async (conn, mek, m, { from, quoted, args, reply }) => {
                 const correctAnswer = questionData.answer;
                 if (userAnswer.toUpperCase() === correctAnswer) {
                     await conn.sendMessage(from, {
-                        react: { text: "✅", key: answerMessage.key }
+                        react: { text: "", key: answerMessage.key }
                     });
                     return reply("🎉 Correct answer! Well done!");
                 } else {
                     await conn.sendMessage(from, {
-                        react: { text: "❌", key: answerMessage.key }
+                        react: { text: "", key: answerMessage.key }
                     });
                     return reply(`❌ Incorrect answer. The correct answer is: ${correctAnswer}.`);
                 }
