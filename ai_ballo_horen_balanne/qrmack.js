@@ -46,8 +46,6 @@ cmd({
     reply(`An error occurred: ${error.message}`);
   }
 });
-
-/*
     // Send the status message with an image
         await conn.sendMessage(from, { 
             image: { url: buffer },  // Image URL
@@ -69,4 +67,3 @@ cmd({
         reply(`An error occurred: ${e.message}`);
     }
 });
-*/
