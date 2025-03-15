@@ -68,8 +68,9 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *apk*
 *┋* *ytpost*
 *┋* *twitter*
+*┋* *ringtone*
 *┋* *Coming Soon*
-*╰───────────────────❒*
+*╰───────────────────❒*ringtone
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
 `;
