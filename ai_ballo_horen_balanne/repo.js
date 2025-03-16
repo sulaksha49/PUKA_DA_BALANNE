@@ -9,19 +9,18 @@ cmd({
     filename: __filename
 }, async (conn, mek, m, { from, sender, pushname, reply }) => {
     try {
-        const timee = moment().tz('Asia/Colombo').format('HH:mm:ss');
-        const channel = '𝐒𝐔𝐋𝐀-𝐌𝐃';
+        const channel = 'SULA-MD';
         const repolink = `https://github.com/sulakshamadara68/SULA-MD`;
 
         return await conn.sendMessage(from, { 
-            image: { url: "https://i.ibb.co/WY2qBYz/SulaMd.jpg" },
+            image: { url: "https://i.ibb.co/5xzWmSxn/20250224-094453.png" },
             caption: repolink,contextInfo: {
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363385281017920@newsletter',
                     newsletterName: '𝐒𝐔𝐋𝐀-𝐌𝐃',
-                    serverMessageId: 190
+                    serverMessageId: -1
                 }
             }
         }, { quoted: mek });
