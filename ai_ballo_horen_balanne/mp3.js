@@ -20,7 +20,7 @@ cmd({
         if (yt.results.length < 1) return reply("No results found!");
         
         let yts = yt.results[0];  
-        let apiUrl = `https://apis.davidcyriltech.my.id/download/ytmp3?url=${encodeURIComponent(yts.url)}`;
+        let apiUrl = `https://apis.davidcyriltech.my.id/download/ytmp4?url=${encodeURIComponent(yts.url)}`;
         
         let response = await fetch(apiUrl);
         let data = await response.json();
@@ -39,17 +39,17 @@ cmd({
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
 
-        // Send video details
+        
         await conn.sendMessage(from, { image: { url: data.result.thumbnail || '' }, caption: ytmsg }, { quoted: mek });
         
-        // Send video file
-        await conn.sendMessage(from, { video: { url: data.result.download_url }, mimetype: "audio/mp3" }, { quoted: mek });
         
-        // Send document file (optional)
+        await conn.sendMessage(from, { audio: { url: data.result.download_url }, mimetype: "audio/mp3" }, { quoted: mek });
+        
+        
         await conn.sendMessage(from, { 
             document: { url: data.result.download_url }, 
             mimetype: "audio/mp3", 
-            fileName: `${data.result.title}.mp3`, 
+            fileName: `${yts.title}.mp3`, 
             caption: `> *${yts.title}*\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
         }, { quoted: mek });
 
