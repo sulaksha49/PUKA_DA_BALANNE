@@ -1,131 +1,54 @@
-const config = require('../config')
+const { cmd } = require('../command');
 const axios = require('axios');
-const { cmd, commands } = require('../command')
-const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
-const fs = require('fs');
-var imgmsg = "*Give me a anime name !*"
-var descgs = "It gives details of given anime name."
-var cants = "I cant find this anime."
+const { Buffer } = require('buffer');
 
-//===========================================================================
+const GOOGLE_API_KEY = 'AIzaSyDebFT-uY_f82_An6bnE9WvVcgVbzwDKgU'; // Replace with your Google API key
+const GOOGLE_CX = '45b94c5cef39940d1'; // Replace with your Google Custom Search Engine ID
 
 cmd({
-    pattern: "animegirl",
-    desc: "Fetch a random anime girl image.",
-    category: "fun",
-    react: "🧚🏻",
+    pattern: "img",
+    desc: "Search and send images from Google.",
+    react: "🖼️",
+    category: "media",
     filename: __filename
 },
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-        const apiUrl = `https://api.waifu.pics/sfw/waifu`;
-        const response = await axios.get(apiUrl);
+        if (!q) return reply("Please provide a search query for the image.");
+
+        // Fetch image URLs from Google Custom Search API
+        const searchQuery = encodeURIComponent(q);
+        const url = `https://www.googleapis.com/customsearch/v1?q=${searchQuery}&cx=${GOOGLE_CX}&key=${GOOGLE_API_KEY}&searchType=image&num=5`;
+        
+        const response = await axios.get(url);
         const data = response.data;
 
-        await conn.sendMessage(from, { image: { url: data.url }, caption: '*ANIME GIRL IMAGE* 🥳\n\n\n *> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈`*' }, { quoted: mek });
+        if (!data.items || data.items.length === 0) {
+            return reply("No images found for your query.");
+        }
+
+        // Send images
+        for (let i = 0; i < data.items.length; i++) {
+            const imageUrl = data.items[i].link;
+
+            // Download the image
+            const imageResponse = await axios.get(imageUrl, { responseType: 'arraybuffer' });
+            const buffer = Buffer.from(imageResponse.data, 'binary');
+
+            // Send the image with a footer
+            await conn.sendMessage(from, {
+                image: buffer,
+                caption: `
+*Image ${i + 1} from your search!😈*
+
+ *Enjoy these images! 👾*
+
+> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
+}, { quoted: mek });
+}
+
     } catch (e) {
-        console.log(e);
-        reply(`*Error Fetching Anime Girl image*: ${e.message}`);
+        console.error(e);
+        reply(`Error: ${e.message}`);
     }
 });
-
-cmd({
-    pattern: "animegirl1",
-    desc: "Fetch a random anime girl image.",
-    category: "fun",
-    react: "🧚🏻",
-    filename: __filename
-},
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    try {
-        const apiUrl = `https://api.waifu.pics/sfw/waifu`;
-        const response = await axios.get(apiUrl);
-        const data = response.data;
-
-        await conn.sendMessage(from, { image: { url: data.url }, caption: 'ANIME GIRL IMAGE 👾\n\n\n > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈' }, { quoted: mek });
-    } catch (e) {
-        console.log(e);
-        reply(`*Error Fetching Anime Girl image*: ${e.message}`);
-    }
-});
-
-cmd({
-    pattern: "animegirl2",
-    desc: "Fetch a random anime girl image.",
-    category: "fun",
-    react: "🧚🏻",
-    filename: __filename
-},
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    try {
-        const apiUrl = `https://api.waifu.pics/sfw/waifu`;
-        const response = await axios.get(apiUrl);
-        const data = response.data;
-
-        await conn.sendMessage(from, { image: { url: data.url }, caption: 'ANIME GIRL IMAGE 👾\n\n\n > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈' }, { quoted: mek });
-    } catch (e) {
-        console.log(e);
-        reply(`*Error Fetching Anime Girl image*: ${e.message}`);
-    }
-});
-
-cmd({
-    pattern: "animegirl3",
-    desc: "Fetch a random anime girl image.",
-    category: "fun",
-    react: "🧚🏻",
-    filename: __filename
-},
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    try {
-        const apiUrl = `https://api.waifu.pics/sfw/waifu`;
-        const response = await axios.get(apiUrl);
-        const data = response.data;
-
-        await conn.sendMessage(from, { image: { url: data.url }, caption: 'ANIME GIRL IMAGE 👾\n\n\n > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈' }, { quoted: mek });
-    } catch (e) {
-        console.log(e);
-        reply(`*Error Fetching Anime Girl image*: ${e.message}`);
-    }
-});
-
-cmd({
-    pattern: "animegirl4",
-    desc: "Fetch a random anime girl image.",
-    category: "fun",
-    react: "🧚🏻",
-    filename: __filename
-},
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    try {
-        const apiUrl = `https://api.waifu.pics/sfw/waifu`;
-        const response = await axios.get(apiUrl);
-        const data = response.data;
-
-        await conn.sendMessage(from, { image: { url: data.url }, caption: 'ANIME GIRL IMAGE 👾\n\n\n > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈' }, { quoted: mek });
-    } catch (e) {
-        console.log(e);
-        reply(`*Error Fetching Anime Girl image*: ${e.message}`);
-    }
-});
-
-cmd({
-    pattern: "animegirl5",
-    desc: "Fetch a random anime girl image.",
-    category: "fun",
-    react: "🧚🏻",
-    filename: __filename
-},
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    try {
-        const apiUrl = `https://api.waifu.pics/sfw/waifu`;
-        const response = await axios.get(apiUrl);
-        const data = response.data;
-
-        await conn.sendMessage(from, { image: { url: data.url }, caption: 'ANIME GIRL IMAGE 👾\n\n\n > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈' }, { quoted: mek });
-    } catch (e) {
-        console.log(e);
-        reply(`*Error Fetching Anime Girl image*: ${e.message}`);
-    }
-});
-
