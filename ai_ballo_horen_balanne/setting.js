@@ -15,7 +15,7 @@ cmd({
 async (conn, mek, m, { from, isOwner, quoted, reply }) => {
     if (!isOwner) return reply("❌ You are not the owner!");
     try {
-        let desc = `* _𝐒𝐔𝐋𝐀-𝐌𝐃 𝑺𝑬𝑻𝑻𝑰𝑵𝑮𝑺_
+        let desc = `*𝐒𝐔𝐋𝐀-𝐌𝐃 𝐒𝐄𝐓𝐓𝐈𝐍𝐆 𝐌𝐄𝐍𝐔*
 
 
 ╭══════════════════════○
@@ -74,7 +74,7 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
 
 > *🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈*`;
 
-        const vv = await conn.sendMessage(from, { image: { url: "https://i.ibb.co/4g2tYcsx/1387.jpg"}, caption: desc }, { quoted: mek });
+        const vv = await conn.sendMessage(from, { image: { url: "https://i.ibb.co/WY2qBYz/SulaMd.jpg"}, caption: desc }, { quoted: mek });
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
