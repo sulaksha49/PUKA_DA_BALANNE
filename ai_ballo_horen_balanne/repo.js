@@ -13,7 +13,7 @@ cmd({
         const repolink = `https://github.com/sulakshamadara68/SULA-MD`;
 
         return await conn.sendMessage(from, { 
-            image: { url: "https://i.ibb.co/5xzWmSxn/20250224-094453.png" },
+            image: { url: "https://i.ibb.co/WY2qBYz/SulaMd.jpg" },
             caption: repolink,contextInfo: {
                 forwardingScore: 999,
                 isForwarded: true,
