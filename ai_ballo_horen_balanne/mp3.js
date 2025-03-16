@@ -43,7 +43,7 @@ cmd({
         await conn.sendMessage(from, { image: { url: data.result.thumbnail || '' }, caption: ytmsg }, { quoted: mek });
         
         // Send video file
-        await conn.sendMessage(from, { video: { url: data.result.download_url }, mimetype: "audio/mpeg" }, { quoted: mek });
+        await conn.sendMessage(from, { audio: { url: data.result.download_url }, mimetype: "audio/mpeg" }, { quoted: mek });
         
         // Send document file (optional)
         await conn.sendMessage(from, { 
