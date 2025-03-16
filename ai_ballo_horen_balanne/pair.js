@@ -1,8 +1,4 @@
-//const fetch = require("node-fetch");
-const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, sleep, fetchJson} = require('../lib/functions')
 const { cmd } = require("../command");
-
-// get pair 2
 
 cmd({
     pattern: "pair",
@@ -24,8 +20,7 @@ async (conn, mek, m, { from, prefix, quoted, q, reply }) => {
         }
 
         // Fetch pairing code
-        //const fetch = require("node-fetch");
-        const response = await fetch(`https://sulamd-cc9ca3dc80f6.herokuapp.com/pair?phone=${q}`);
+        const response = await fetch(`https://sulamd-cc9ca3dc80f6.herokuapp.com/code?number=${q}`);
         const pair = await response.json();
 
         // Check for errors in response
@@ -34,16 +29,15 @@ async (conn, mek, m, { from, prefix, quoted, q, reply }) => {
         }
 
         // Success response
-        const pairingCode = pair.code;
+        const pairingCode = pair.code; // Corrected this line
         const doneMessage = "> *𝐒𝐔𝐋𝐀-𝐌𝐃 PAIR COMPLETED*";
 
         // Send first message
         await reply(`${doneMessage}\n\n*Your pairing code is:* ${pairingCode}`);
 
-        // Add a delay of 2 seconds before sending the second message
+        
         await sleep(2000);
 
-        // Send second message with just the pairing code
         await reply(`Code: ${pairingCode}`);
     } catch (error) {
         console.error(error);
