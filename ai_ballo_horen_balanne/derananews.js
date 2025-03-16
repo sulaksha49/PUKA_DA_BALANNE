@@ -1,50 +1,44 @@
-const axios = require('axios');
+const config = require('../config');
 const { cmd } = require('../command');
-const { fetchJson } = require('../lib/functions');
+const axios = require('axios');
+
+// API LINK
+const apilink = 'https://mr-lakiya-api-site.vercel.app/news/derana'; 
 
 cmd({
-    pattern: "derana",
-    alias: ["derananews"],
+    pattern: "derananews",
+    alias: ["derana", "news3"],
     react: "📑",
-    category: "search  news",
-    desc: "sula hiru news ",
-    use: ".hirunews",
-    filename: __filename,
+    desc: "",
+    category: "news",
+    use: '.derana',
+    filename: __filename
 },
-    async (conn, mek, m, {
-        from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber,
-        botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName,
-        participants, groupAdmins, isBotAdmins, isAdmins, reply
-    }) => {
-        try {
-            const apiUrl = `https://mr-lakiya-api-site.vercel.app/news/derana`;
-            const response = await axios.get(apiUrl);
-            const data = response.data;
+async (conn, mek, m, { from, quoted }) => {
+    try {
+        // Fetch news data from the API
+        const response = await axios.get(apilink);
+        const news = response.data[0]; // Access the first item of the array
 
-            if (!data || !data.newsURL || !data.title || !data.image || !data.text) {
-                return reply(`*මෙම කාලයේදි පුවත් සොයාගැනිමට අපහසුවිය* ❗`);
-            }
+        // Construct the message
+        const msg = `
+           📑 𝐃𝐄𝐑𝐀𝐍𝐀 𝐍𝐄𝐖𝐒 📑
 
-            const { newsURL, title, image, text, Power } = data;
+* Title - ${news.title || 'Not available'}
+* News - ${news.description || 'Not available'}
+* Date - ${news.time || 'Not available'}
+* Link - ${news.new_url || 'Not available'}
 
-            let newsInfo = "*📰𝐃𝐞𝐫𝐚𝐧𝐚 𝐍𝐞𝐰𝐬 𝐔𝐩𝐝𝐚𝐭𝐞 📰*\n\n";
-            newsInfo += `✨ *Title*: ${title}\n\n`;
-            newsInfo += `📑 *Description*:\n${text}\n\n`;
-            newsInfo += `⛓️‍💥 *Url*: www.hirunews.lk\n\n`;
-            newsInfo += `> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
+> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
+        `;
 
-            if (image) {
-                await conn.sendMessage(m.chat, {
-                    image: { url: image },
-                    caption: newsInfo,
-                }, { quoted: m });
-            } else {
-                await conn.sendMessage(m.chat, { text: newsInfo }, { quoted: m });
-            }
-
-        } catch (error) {
-            console.error(error);
-            reply(`*⚠️ දෝෂයක් සිදු විය. API එකෙන් දත්ත ලබා ගැනීමට නොහැකි විය ❗`);
-        }
+        // Send the news as a message
+        await conn.sendMessage(from, { 
+            image: { url: news.image || '' }, 
+            caption: msg 
+        }, { quoted: mek });
+    } catch (e) {
+        console.error(e);
+        reply('⚠️ දෝෂයක් සිදු විය. API එකෙන් දත්ත ලබා ගැනීමට නොහැකි විය!');
     }
-);
+});
