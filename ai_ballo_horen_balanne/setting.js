@@ -63,7 +63,11 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
 > *🔟. 2️⃣ Status React Off*
 > *🔟. 3️⃣ Status Reply On*
 > *🔟. 4️⃣ Status Reply Off*
-╰═══════════════════════○
+╭══════════════════════○
+ Auto Status Rpl එක වෙනස් කරන්න මෙහෙම කරන්න
+ 
+.update AUTO_STATUS_MSG: ඔයාට ඕන Msg එක දාන්න
+╰══════════════════════○
 
 
 * *🔢 Reply Below This Number Change To 𝐒𝐔𝐋𝐀-𝐌𝐃 Bot Change Setting*
