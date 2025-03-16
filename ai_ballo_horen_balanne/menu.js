@@ -2,7 +2,7 @@ const config = require('../config');
 const { cmd, commands } = require('../command');
 const os = require("os");
 const { runtime } = require('../lib/functions');
-const imageUrl = 'https://i.ibb.co/DfVb9xjh/2891.jpg';
+const imageUrl = 'https://i.ibb.co/gL23R0K7/SulaMd.png';
 
 cmd({
     pattern: "menu",
