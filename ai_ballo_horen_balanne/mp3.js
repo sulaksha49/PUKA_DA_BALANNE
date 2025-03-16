@@ -2,8 +2,10 @@ const config = require('../config');
 const { cmd } = require('../command');
 const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js');  
 
+// play
+
 cmd({ 
-    pattern: "song1", 
+    pattern: "song", 
     alias: ["ytdl", "mp3"], 
     react: "🎥", 
     desc: "Download Youtube song", 
@@ -35,22 +37,21 @@ cmd({
 ┇๏ *Link* -  ${yts.url}
 ╰────────────────┈⊷
 
-> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈`;
+> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
 
-
-     // Send song details
-    await conn.sendMessage(from, { image: { url: data.result.image || '' }, caption: ytmsg }, { quoted: mek });
-    
-    // Send audio file
-    await conn.sendMessage(from, { audio: { url: data.result.downloadUrl }, mimetype: "audio/mpeg" }, { quoted: mek });
-    
-    // Send document file
-    await conn.sendMessage(from, { 
-        document: { url: data.result.downloadUrl }, 
-        mimetype: "audio/mpeg", 
-        fileName: `${data.result.title}.mp3`, 
-        caption: `> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈`
-    }, { quoted: mek });
+        // Send video details
+        await conn.sendMessage(from, { image: { url: data.result.thumbnail || '' }, caption: ytmsg }, { quoted: mek });
+        
+        // Send video file
+        await conn.sendMessage(from, { video: { url: data.result.download_url }, mimetype: "audio/mp3" }, { quoted: mek });
+        
+        // Send document file (optional)
+        await conn.sendMessage(from, { 
+            document: { url: data.result.download_url }, 
+            mimetype: "audio/mp3", 
+            fileName: `${data.result.title}.mp3`, 
+            caption: `> *${yts.title}*\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
+        }, { quoted: mek });
 
     } catch (e) {
         console.log(e);
