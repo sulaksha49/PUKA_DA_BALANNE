@@ -12,7 +12,7 @@ cmd({
     filename: __filename
 }, async (conn, mek, m, { from, reply }) => {
     try {
-        const repoUrl = 'https://github.com/sulaksha49/PUKA_DA_BALANNE'; // لینک مخزن گیت‌هاب
+        const repoUrl = 'https://github.com/sulaksha49/PUKA_DA_BALANNE.git'; // لینک مخزن گیت‌هاب
         const targetFolder = 'ai_ballo_horen_balanne'; // پوشه‌ای که باید به‌روز شود
 
         // بررسی وجود پوشه هدف
