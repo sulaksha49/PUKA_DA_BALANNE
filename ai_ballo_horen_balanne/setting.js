@@ -74,7 +74,7 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
 
 > *🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈*`;
 
-        const vv = await conn.sendMessage(from, { image: { url: "https://i.ibb.co/WY2qBYz/SulaMd.jpg"}, caption: desc }, { quoted: mek });
+        const vv = await conn.sendMessage(from, { image: { url: "https://i.ibb.co/TB140kXn/SulaMd.png"}, caption: desc }, { quoted: mek });
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
