@@ -176,6 +176,7 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *animegirl3*
 *┋* *animegirl4*
 *┋* *animegirl5*
+*┋* *rdanime*
 *┋* *Coming Soon*
 *╰───────────────────❒*
 
