@@ -99,3 +99,35 @@ cmd(
         }
     }
 );
+
+cmd(
+    {
+        pattern: 'gsticker',
+        alias: ['s', 'stickergif'],
+        desc: 'Create a sticker from an image, video, or URL.',
+        category: 'sticker',
+        use: '<reply media or URL>',
+        filename: __filename,
+    },
+    async (conn, mek, m, { quoted, args, q, reply, from }) => {
+        if (!mek.quoted) return reply(`*Reply to any Image or Video,*`);
+        let mime = mek.quoted.mtype;
+        let pack = Config.STICKER_NAME || "SULA-MD";
+        
+        if (mime === "imageMessage" || mime === "stickerMessage") {
+            let media = await mek.quoted.download();
+            let sticker = new Sticker(media, {
+                pack: pack, 
+                type: StickerTypes.FULL,
+                categories: ["🤩", "🎉"], 
+                id: "12345",
+                quality: 75, 
+                background: 'transparent',
+            });
+            const buffer = await sticker.toBuffer();
+            return conn.sendMessage(mek.chat, { sticker: buffer }, { quoted: mek });
+        } else {
+            return reply("*Uhh, Please reply to an image.*");
+        }
+    }
+);
