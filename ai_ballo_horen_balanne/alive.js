@@ -22,7 +22,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 ┃◈└───────────┈⊷
 ╰──────────────┈⊷
 
-  *𝐒𝐮𝐥𝐚 𝐌𝐃 Multidevice Whatsapp Bot Mack By (Sulaksha Madara).*
+  *𝐒𝐮𝐥𝐚 𝐌𝐃 Multidevice Whatsapp Bot Make By (Sulaksha Madara).*
 
   https://whatsapp.com/channel/0029Vb65iOZKwqSNKecV8V07
 
