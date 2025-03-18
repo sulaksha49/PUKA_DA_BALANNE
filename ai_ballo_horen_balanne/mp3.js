@@ -5,7 +5,7 @@ Follow Us: *https://whatsapp.com/channel/0029VaaPfFK7Noa8nI8zGg27*
 
 */
 
-```const config = require('../config');
+const config = require('../config');
 const { cmd } = require('../command');
 const DY_SCRAP = require('@dark-yasiya/scrap');
 const dy_scrap = new DY_SCRAP();
@@ -101,4 +101,4 @@ cmd({
         await reply(`❌ *An error occurred:* ${e.message || "Error!"}`);
     }
 });
-```
+
