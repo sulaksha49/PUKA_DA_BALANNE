@@ -1,85 +1,60 @@
-const { cmd, commands } = require('../command');
-const { fetchJson } = require('../lib/functions');
-const yts = require('yt-search');
-const domain = `https://manu-ofc-api-site-6bfcbe0e18f6.herokuapp.com`;
-const api_key = `Manul-Ofc-Song-Dl-Key-9`;
+const config = require('../config');
+const { cmd } = require('../command');
+const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js'); 
 
+cmd({ 
+     pattern: "mp3", 
+     alias: ["yta", "play"], 
+     react: "🎶", 
+     desc: "Download Youtube song",
+     category: "main", 
+     use: '.song < Yt url or Name >', 
+     filename: __filename }, 
+     async (conn, mek, m, { from, prefix, quoted, q, reply }) => 
+     
+     { try { if (!q) return await reply("*𝐏ℓєαʂє 𝐏ɼ๏νιɖє 𝐀 𝐘ʈ 𝐔ɼℓ ๏ɼ 𝐒๏ƞ͛g 𝐍αмє..*");
 
-cmd({
-    pattern: "song",
-    alias: ["audio"],
-    desc: 'Download Song / Video',
-    use: '.play Title',
-    react: "🎧",
-    category: 'download',
-    filename: __filename
-},
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    try {
-        if (!q) return reply('𝗣𝗹𝗲𝗮𝘀𝗲 𝗣𝗿𝗼𝘃𝗶𝗱𝗲 𝗮 𝗦𝗼𝗻𝗴 𝗧𝗶𝘁𝗹𝗲 ❗.');
-        const search = await yts(q);
-        const data = search.videos[0];
-        const url = data.url;
-
-        let desc = `
-> *🎧CHALAH MD  𝗔𝗨𝗗𝗜𝗢🎧*
-╭──────────────────────
-
-> *☘️ ➢| ᴛɪᴛʟᴇ  :* *${data.title}*
-
-> *👀 ➢| ᴠɪᴇᴡꜱ  :* *${data.views}*
-
-> *⛔ ➢| ᴅᴇꜱᴄʀɪᴘᴛɪᴏᴍ  :* *${data.description}*
-
-> *⏰ ➢| ᴛɪᴍᴇ  :* *${data.timestamp}* 
-
-> *📅 ➢| ᴀɢᴏ  :* *${data.ago}*
-*╰────────────────────*
-*🔢𝘙𝘌𝘗𝘓𝘠 𝘛𝘏𝘌 𝘛𝘏𝘈𝘛𝘚 𝘠𝘖𝘜 𝘞𝘈𝘕𝘛 𝘕𝘜𝘔𝘉𝘌𝘙*
-
-|| 01.||  𝗔𝘂𝗱𝗶𝗼 🎧
-|| 02.|| 𝗗𝗼𝗰𝘂𝗺𝗲𝗻𝘁 📂
-
+const yt = await ytsearch(q);
+    if (yt.results.length < 1) return reply("No results found!");
+    
+    let yts = yt.results[0];  
+    let apiUrl = `https://apis.davidcyriltech.my.id/youtube/mp3?url=${encodeURIComponent(yts.url)}`;
+    
+    let response = await fetch(apiUrl);
+    let data = await response.json();
+    
+    if (data.status !== 200 || !data.success || !data.result.downloadUrl) {
+        return reply("Failed to fetch the audio. Please try again later.");
+    }
+    
+    let ytmsg = `╔═══〔 *𝐒𝐔𝐋𝐀-𝐌𝐃* 〕═══❒
+║ ⿻ *ᴛɪᴛʟᴇ:*  ${yts.title}
+║ ⿻ *ᴅᴜʀᴀᴛɪᴏɴ:*  ${yts.timestamp}
+║ ⿻ *ᴠɪᴇᴡs:*  ${yts.views}
+║ ⿻ *ᴀᴜᴛʜᴏʀ:*  ${yts.author.name}
+║ ⿻ *ʟɪɴᴋ:*  ${yts.url}
+╚══════════════════❒
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
 
-        const vv = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
 
-        conn.ev.on('messages.upsert', async (msgUpdate) => {
-            const msg = msgUpdate.messages[0];
-            if (!msg.message || !msg.message.extendedTextMessage) return;
 
-            const selectedOption = msg.message.extendedTextMessage.text.trim();
-
-            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
-                switch (selectedOption) {
-                    case '1':
-    const response = await fetchJson(`${domain}/api/ytmp3?videoUrl=${data.url}&apikey=${api_key}`);
+// Send song details
+    await conn.sendMessage(from, { image: { url: data.result.image || '' }, caption: ytmsg }, { quoted: mek });
     
-    const downloadUrl = response.data.dl_link;
-
-//============Send Audio======================
-await conn.sendMessage(from,{audio:{url: downloadUrl },mimetype:"audio/mpeg",caption :"> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈"},{quoted:mek})
-                        break;
-       
-                    case '2':               
-const responsex = await fetchJson(`${domain}/api/ytmp3?videoUrl=${data.url}&apikey=${api_key}`);
+    // Send audio file
+    await conn.sendMessage(from, { audio: { url: data.result.downloadUrl }, mimetype: "audio/mpeg" }, { quoted: mek });
     
-    const downloadUrlx = responsex.data.dl_link;
+    // Send document file
+    await conn.sendMessage(from, { 
+        document: { url: data.result.downloadUrl }, 
+        mimetype: "audio/mpeg", 
+        fileName: `${data.result.title}.mp3`, 
+        caption: `> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
+    }, { quoted: mek });
 
-//=============Send Document=================
-await conn.sendMessage(from,{document:{url: downloadUrlx },mimetype:"audio/mpeg",fileName: data.title + ".mp3" ,caption :"> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈"},{quoted:mek})
-                        break;
- 
-                    default:
-                        reply("Invalid option. Please select a valid option 💗");
-                }
+} catch (e) {
+    console.log(e);
+    reply("An error occurred. Please try again later.");
+}
 
-            }
-        });
-
-    } catch (e) {
-        console.error(e);
-        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
-        reply('An error occurred while processing your request.');
-    }
 });
