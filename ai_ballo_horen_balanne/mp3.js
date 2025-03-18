@@ -1,10 +1,3 @@
-/*
-
-Plugin Author: *Dark-Yasiya*
-Follow Us: *https://whatsapp.com/channel/0029VaaPfFK7Noa8nI8zGg27*
-
-*/
-
 const config = require('../config');
 const { cmd } = require('../command');
 const DY_SCRAP = require('@dark-yasiya/scrap');
