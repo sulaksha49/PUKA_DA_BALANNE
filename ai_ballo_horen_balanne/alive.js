@@ -24,8 +24,14 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
   *𝐒𝐮𝐥𝐚 𝐌𝐃 Multidevice Whatsapp Bot Make By (Sulaksha Madara).*
 
+     ⭕𝗝𝗢𝗜𝗡 𝗢𝗨𝗥 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 𝗖𝗛𝗔𝗡𝗡𝗘𝗟
+     
   https://whatsapp.com/channel/0029Vb65iOZKwqSNKecV8V07
 
+     ⭕𝗝𝗢𝗜𝗡 𝗢𝗨𝗥 𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗚𝗥𝗢𝗨𝗣
+     
+  https://chat.whatsapp.com/BA1G39lcm1iA0ECKrlk4OD
+  
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
 
         // Send the status message with an image
