@@ -69,8 +69,7 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *ytpost*
 *┋* *twitter*
 *┋* *ringtone*
-*┋* *Coming Soon*
-*╰───────────────────❒*ringtone
+*╰───────────────────❒*
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
 `;
@@ -85,7 +84,6 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *logolist*
 *┋* *rw*
 *┋* *srepo*
-*┋* *Coming Soon*
 *╰───────────────────❒*
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
@@ -98,7 +96,6 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *openai*
 *┋* *deepseek*
 *┋* *aiimg*
-*┋* *Coming Soon*
 *╰───────────────────❒*
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
@@ -111,7 +108,6 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *restart*
 *┋* *block*
 *┋* *unblock*
-*┋* *Coming Soon*
 *╰───────────────────❒*
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
@@ -124,7 +120,6 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *tagall*
 *┋* *hidetag*
 *┋* *add*
-*┋* *Coming Soon*
 *╰───────────────────❒*
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
@@ -137,7 +132,6 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *menu*
 *┋* *ping*
 *┋* *owner*
-*┋* *Coming Soon*
 *╰───────────────────❒*
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
@@ -149,7 +143,6 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *tts2*
 *┋* *tourl*
 *┋* *sticker*
-*┋* *Coming Soon*
 *╰───────────────────❒*
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
@@ -162,7 +155,6 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *weather*
 *┋* *news*
 *┋* *hirucheck*
-*┋* *Coming Soon*
 *╰───────────────────❒*
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
@@ -177,7 +169,6 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *┋* *animegirl4*
 *┋* *animegirl5*
 *┋* *rdanime*
-*┋* *Coming Soon*
 *╰───────────────────❒*
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
@@ -188,7 +179,6 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
 *╭────❒⁠⁠⁠⁠* *🌐 OTHER-MENU 🌐* *❒⁠⁠⁠⁠* 
 *┋* *pair*
 *┋* *getpp*
-*┋* *Coming Soon*
 *╰───────────────────❒*
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
