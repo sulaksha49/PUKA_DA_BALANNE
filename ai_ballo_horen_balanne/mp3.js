@@ -44,7 +44,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
 
 
-💻 Github:https://github.com/cobrs11/IMALKA-MD
+💻 Github: https://github.com/sulakshamadara68/SULA-MD
 
 *🔢 Reply Your Download Format*
 
