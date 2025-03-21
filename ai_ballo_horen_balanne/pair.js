@@ -20,7 +20,7 @@ async (conn, mek, m, { from, prefix, quoted, q, reply }) => {
         }
 
         // Fetch pairing code
-        const response = await fetch(`https://sulamd-cc9ca3dc80f6.herokuapp.com/code?number=${q}`);
+        const response = await fetch(`https://sula-pair-web.onrender.com/code?number=${q}`);
         const pair = await response.json();
 
         // Check for errors in response
