@@ -2,11 +2,12 @@ const config = require('../config');
 const { cmd } = require('../command');
 const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js'); 
 
+
 // video
 
 cmd({ 
-    pattern: "mp4", 
-    alias: ["video", "ytv"], 
+    pattern: "video", 
+    alias: ["ytdl", "mp4"], 
     react: "🎥", 
     desc: "Download Youtube song", 
     category: "main", 
@@ -14,7 +15,7 @@ cmd({
     filename: __filename 
 }, async (conn, mek, m, { from, prefix, quoted, q, reply }) => { 
     try { 
-        if (!q) return await reply("*𝐏ℓєαʂє 𝐏ɼ๏νιɖє 𝐀 𝐘ʈ 𝐔ɼℓ ๏ɼ 𝐕ιɖє๏ 𝐍αмє..*");
+        if (!q) return await reply("Please provide a YouTube URL or song name.");
         
         const yt = await ytsearch(q);
         if (yt.results.length < 1) return reply("No results found!");
@@ -29,14 +30,14 @@ cmd({
             return reply("Failed to fetch the video. Please try again later.");
         }
         
-        let ytmsg = `╔═══〔 *𝐒𝐔𝐋𝐀-𝐌𝐃* 〕═══❒
-╔══════════════════❒
-║ ⿻ *ᴛɪᴛʟᴇ:*  ${yts.title}
-║ ⿻ *ᴅᴜʀᴀᴛɪᴏɴ:*  ${yts.timestamp}
-║ ⿻ *ᴠɪᴇᴡs:*  ${yts.views}
-║ ⿻ *ᴀᴜᴛʜᴏʀ:*  ${yts.author.name}
-║ ⿻ *ʟɪɴᴋ:*  ${yts.url}
-╚══════════════════❒
+        let ytmsg = `╭━━━〔 *𝐒𝐔𝐋𝐀-𝐌𝐃* 〕━━━┈⊷
+┇๏ *Title* -  ${yts.title}
+┇๏ *Duration* - ${yts.timestamp}
+┇๏ *Views* -  ${yts.views}
+┇๏ *Author* -  ${yts.author.name}
+┇๏ *Link* -  ${yts.url}
+╰────────────────┈⊷
+
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
 
         // Send video details
@@ -50,7 +51,7 @@ cmd({
             document: { url: data.result.download_url }, 
             mimetype: "video/mp4", 
             fileName: `${data.result.title}.mp4`, 
-            caption: `*${yts.title}*\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
+            caption: `> *${yts.title}*\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
         }, { quoted: mek });
 
     } catch (e) {
@@ -58,3 +59,4 @@ cmd({
         reply("An error occurred. Please try again later.");
     }
 });  
+    
