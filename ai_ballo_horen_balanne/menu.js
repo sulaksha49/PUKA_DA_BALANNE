@@ -16,26 +16,28 @@ cmd({
 async (conn, mek, m, { from, quoted, pushname, reply }) => {
     try {
         const selectionMessage = `
+
 ╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
-      *Hi 😈*  *${pushname}*
-      
-    *𝐒𝐔𝐋𝐀_𝐌𝐃 Command List*
+      𝐇ɪɪɪɪɪ......🍷 *${pushname}*
+     *𝐒ᴜʟᴀ 𝐌ᴅ 𝐂ᴏᴍᴍᴀɴᴅ 𝐋ɪꜱᴛ*
+     
 ╰━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 
-  *╭────────────●●►*
-  *│1. DOWNLOAD MENU*
-  *│2. SEARCH MENU* 
-  *│3. AI MENU*
-  *│4. OWNER MENU*
-  *│5. GROUP MENU*
-  *│6. INFO MENU*
-  *│7. CONVERTER MENU*
-  *│8. RANDOM MENU*
-  *│9. WALLPAPERS MENU*
-  *│10. OTHER MENU*
-  *╰────────────●●►*
-
-> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
+*╭────────────●●►*
+*│𝐋ɪꜱᴛ  𝐌ᴇɴᴜ......☘️*
+*│⟻⟻⟻⟻⟻⟻⟻*
+*│1. 𝐃ᴏᴡɴʟᴏᴀᴅ 𝐌ᴇɴᴜ*
+*│2. 𝐒ᴇᴀʀᴄʜ 𝐌ᴇɴᴜ* 
+*│3. 𝐀ɪ 𝐌ᴇɴᴜ*
+*│4. 𝐎ᴡɴᴇʀ 𝐌ᴇɴᴜ*
+*│5. 𝐆ʀᴏᴜᴘ 𝐌ᴇɴᴜ*
+*│6. 𝐈ɴꜰᴏ 𝐌ᴇɴᴜ*
+*│7. 𝐂ᴏɴᴠᴇʀᴛᴇʀ 𝐌ᴇɴᴜ*
+*│8. 𝐑ᴀɴᴅᴏᴍ  𝐌ᴇɴᴜ*
+*│9. 𝐖ᴀʟʟᴘᴀᴘᴇʀꜱ  𝐌ᴇɴᴜ*
+*│10. 𝐎ᴛʜᴇʀ 𝐌ᴇɴᴜ*
+*╰────────────●●►*
+𝐑ᴇᴘʟʏ 𝐓ʜᴇ 𝐍ᴜᴍʙᴇʀ 𝐘ᴏᴜ 𝐖ᴀɴᴛ 𝐓ᴏ 𝐒ᴇʟᴇᴄᴛ.......👁️❗
 `;
 
         const sentMsg = await conn.sendMessage(from, {
