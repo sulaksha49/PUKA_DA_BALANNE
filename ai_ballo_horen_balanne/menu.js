@@ -60,20 +60,20 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
                 switch (userResponse) {
                     case '1': // DOWNLOAD MENU
                         responseText = `
-*╭────❒⁠⁠⁠⁠* *📥 DOWNLOADER-MENU 📥* *❒⁠⁠⁠⁠* 
-*┋* *song*
-*┋* *video*
-*┋* *tiktok*
-*┋* *fb*
-*┋* *insta*
-*┋* *mediafire*
-*┋* *apk*
-*┋* *ytpost*
-*┋* *twitter*
-*┋* *ringtone*
+*╭────❒⁠⁠⁠⁠* *📥 𝐃ᴏᴡɴʟ 𝐎ᴀᴅᴇʀ-𝐌ᴇɴᴜ 📥* *❒⁠⁠⁠⁠* 
+*┋* *.𝐒ᴏɴɢ*
+*┋* *.𝐕ɪᴅᴇᴏ*
+*┋* *.𝐓ɪᴋᴛᴏᴋɪᴋ*
+*┋* *.𝐅ʙ*
+*┋* *.𝐈ɴꜱᴛᴀ*
+*┋* *.𝐌ᴇᴅɪᴀꜰɪʀᴇ*
+*┋* *.𝐀ᴘᴋ*
+*┋* *.𝐘ᴛᴘᴏꜱᴛ*
+*┋* *.𝐓ᴡɪᴛᴛᴇʀ*
+*┋* *..𝐑ɪɴɢᴛᴏɴᴇ*
 *╰───────────────────❒*
 
-> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
+> 𝐏ᴏᴡᴇʀᴅ 𝐁ʏ 𝐒ᴜʟᴀ_𝐌ᴅ......👁️❗
 `;
                         break;
                     case '2': // SEARCH MENU
