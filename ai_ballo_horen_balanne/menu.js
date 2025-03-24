@@ -93,14 +93,14 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
                         break;
                     case '3': // AI MENU
                         responseText = `
-*╭────❒⁠⁠⁠⁠* *🧠 AI-MENU 🧠* *❒⁠⁠⁠⁠* 
-*┋* *ai*
-*┋* *openai*
-*┋* *deepseek*
-*┋* *aiimg*
+*╭────❒⁠⁠⁠⁠* *🧠 𝐀ɪ-𝐌ᴇɴᴜ  🧠* *❒⁠⁠⁠⁠* 
+*┋* *.𝐀ɪ*
+*┋* *.𝐎ᴘᴇɴᴀɪ*
+*┋* *.𝐃ᴇᴇᴘꜱᴇᴇᴋ*
+*┋* *.𝐀ɪ 𝐈ᴍɢ*
 *╰───────────────────❒*
 
-> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
+> 𝐏ᴏᴡᴇʀᴅ 𝐁ʏ 𝐒ᴜʟᴀ_𝐌ᴅ......👁️❗
 `;
                         break;
                     case '4': // OWNER MENU
