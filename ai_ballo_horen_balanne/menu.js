@@ -78,17 +78,17 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
                         break;
                     case '2': // SEARCH MENU
                         responseText = `
-*╭────❒⁠⁠⁠⁠* *🔎 SEARCH-MENU 🔍* *❒⁠⁠⁠⁠* 
-*┋* *tiktokstalk*
-*┋* *tiktoksearch*
-*┋* *movie*
-*┋* *img*
-*┋* *logolist*
-*┋* *rw*
-*┋* *srepo*
+*╭────❒⁠⁠⁠⁠* *🔎 𝐒ᴇᴀʀᴄʜ-𝐌ᴇɴᴜ 🔍* *❒⁠⁠⁠⁠* 
+*┋* *.𝐓ɪᴋᴛᴏᴋ 𝐒ᴛᴀʟᴋ*
+*┋* *.𝐓ɪᴋᴛᴏᴋ 𝐒ᴇᴀʀᴄʜ*
+*┋* *.𝐌ᴏᴠɪᴇ*
+*┋* *.𝐈ᴍɢ*
+*┋* *.𝐋ᴏɢᴏ 𝐋ɪꜱᴛ*
+*┋* *.𝐑ᴡ*
+*┋* *.𝐒ʀᴇᴘᴏ*
 *╰───────────────────❒*
 
-> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
+> 𝐏ᴏᴡᴇʀᴅ 𝐁ʏ 𝐒ᴜʟᴀ_𝐌ᴅ......👁️❗
 `;
                         break;
                     case '3': // AI MENU
