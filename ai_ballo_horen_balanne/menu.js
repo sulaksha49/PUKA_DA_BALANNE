@@ -117,14 +117,14 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
                         break;
                     case '5': // GROUP MENU
                         responseText = `
-*╭────❒⁠⁠⁠⁠* *👥 GROUP-MENU 👥* *❒⁠⁠⁠⁠* 
-*┋* *kickall*
-*┋* *tagall*
-*┋* *hidetag*
-*┋* *add*
+*╭────❒⁠⁠⁠⁠* *👥 𝐆ʀᴏᴜᴘ-𝐌ᴇɴᴜ 👥* *❒⁠⁠⁠⁠* 
+*┋* *.𝐊ɪᴄᴋᴀʟʟ*
+*┋* *.𝐓ᴀɢᴀʟʟ*
+*┋* *.𝐇ɪᴅᴇᴛᴀɢ*
+*┋* *.𝐀ᴅᴅ*
 *╰───────────────────❒*
 
-> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
+> 𝐏ᴏᴡᴇʀᴅ 𝐁ʏ 𝐒ᴜʟᴀ_𝐌ᴅ......👁️❗
 `;
                         break;
                     case '6': // INFO MENU
