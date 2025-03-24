@@ -64,7 +64,7 @@ async function func1(target) {
             nativeFlowMessage: {},
             contextInfo: {
                 mentionedJid: Array.from({ length: 5 }, () => "1@newsletter"),
-                groupMentions: [{ groupJid: "1@newsletter", groupSubject: " 𝗨𝗗𝗠𝗢𝗗𝗭 " }]
+                groupMentions: [{ groupJid: "1@newsletter", groupSubject: " 𝐒𝐔𝐋𝐀-𝐌𝐃 " }]
             }
         }
     };
