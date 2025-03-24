@@ -105,14 +105,14 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
                         break;
                     case '4': // OWNER MENU
                         responseText = `
-*╭────❒⁠⁠⁠⁠* *👨‍💻 OWNER-MENU 👨‍💻* *❒⁠⁠⁠⁠* 
-*┋* *update*
-*┋* *restart*
-*┋* *block*
-*┋* *unblock*
+*╭────❒⁠⁠⁠⁠* *👨‍💻 𝐎ᴡɴᴇʀ-𝐌ᴇɴᴜ 👨‍💻* *❒⁠⁠⁠⁠* 
+*┋* *.𝐔ᴘᴅᴀᴛᴇ*
+*┋* *.𝐑ᴇꜱᴛᴀʀᴛ*
+*┋* *.𝐁ʟᴏᴄᴋ*
+*┋* *.𝐔ɴʙʟᴏᴄᴋ*
 *╰───────────────────❒*
 
-> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
+> 𝐏ᴏᴡᴇʀᴅ 𝐁ʏ 𝐒ᴜʟᴀ_𝐌ᴅ......👁️❗
 `;
                         break;
                     case '5': // GROUP MENU
