@@ -3,7 +3,6 @@ const { cmd } = require('../command');
 const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js');  
 
 // play
-
 cmd({ 
     pattern: "song", 
     alias: ["ytdl", "mp3"], 
@@ -39,17 +38,17 @@ cmd({
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
 
-        // Send video details
+        
         await conn.sendMessage(from, { image: { url: data.result.thumbnail || '' }, caption: ytmsg }, { quoted: mek });
         
-        // Send video file
-        await conn.sendMessage(from, { video: { url: data.result.download_url }, mimetype: "audio/mp3" }, { quoted: mek });
         
-        // Send document file (optional)
+        await conn.sendMessage(from, { audio: { url: data.result.download_url }, mimetype: "audio/mpeg" }, { quoted: mek });
+        
+        
         await conn.sendMessage(from, { 
             document: { url: data.result.download_url }, 
-            mimetype: "audio/mp3", 
-            fileName: `${data.result.title}.mp3`, 
+            mimetype: "audio/mpeg", 
+            fileName: `${yts.title}.mp3`, 
             caption: `> *${yts.title}*\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
         }, { quoted: mek });
 
