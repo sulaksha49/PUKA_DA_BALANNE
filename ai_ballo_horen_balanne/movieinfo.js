@@ -3,7 +3,7 @@ const { cmd } = require('../command');
 const config = require('../config'); // Ensure your API key is in config
 
 cmd({
-    pattern: "movie",
+    pattern: "movieinfo",
     desc: "Fetch detailed information about a movie.",
     category: "utility",
     react: "🎬",
