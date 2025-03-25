@@ -34,7 +34,8 @@ cmd({
                 + `> ⌚ *Duration:* ${duration}\n`
                 + `> 🎧 *Quality:* ${quality}kbps\n`
                 + `> 🔉 *Format* ${format}\n\n`
-                + ``;
+                
+                + `> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
 
             // Send song details with image
             await conn.sendMessage(from, {
