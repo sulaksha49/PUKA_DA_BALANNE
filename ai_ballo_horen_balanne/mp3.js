@@ -4,54 +4,57 @@ const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js');
 
 // play
 
-const apikey = '02b7adf6c63ecb12' // https://api-dark-shan-yt.koyeb.app/signup
-cmd({
-    pattern: "ytmp3",
-    alias: ["mp3", "song"],
-    use: ".ytmp3 <YouTube URL>",
-    react: "🎶",
-    desc: "Download YouTube audio in MP3 format",
-    category: "download",
-    filename: __filename
-},
-    async (conn, m, mek, { from, q, reply, prefix, tr }) => {
-        try {
-            if (!q) return await reply("*Please provide a valid YouTube URL!*");
-
-            const apiUrl = `https://api-dark-shan-yt.koyeb.app/download/ytmp3?url=${encodeURIComponent(q)}&apikey=${apikey}`;
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-
-            if (!data.status || !data.data?.result) {
-                return await reply("*Failed to fetch the audio. Please try again!*");
-            }
-
-            const { title, uploader, duration, quality, format, thumbnail, download } = data.data.result;
-
-            const caption = `*🎶 YouTube MP3 Downloader 🎶*\n\n`
-                + `> 📃 *Title:* ${title}\n`
-                + `> 🎤 *Uploader:* ${uploader}\n`
-                + `> ⌚ *Duration:* ${duration}\n`
-                + `> 🎧 *Quality:* ${quality}kbps\n`
-                + `> 🔉 *Format* ${format}\n\n`
-                
-                + `> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
-
-            // Send song details with image
-            await conn.sendMessage(from, {
-                image: { url: thumbnail },
-                caption: caption
-            }, { quoted: mek });
-
-            // Send the audio file
-            await conn.sendMessage(from, {
-                audio: { url: download },
-                mimetype: "audio/mpeg",
-                fileName: `${title}.mp3`
-            }, { quoted: mek });
-
-        } catch (e) {
-            console.error(e);
-            await reply("*Error occurred while processing the request!*");
+cmd({ 
+    pattern: "song", 
+    alias: ["ytdl", "mp3"], 
+    react: "🎥", 
+    desc: "Download Youtube song", 
+    category: "main", 
+    use: '.song < Yt url or Name >', 
+    filename: __filename 
+}, async (conn, mek, m, { from, prefix, quoted, q, reply }) => { 
+    try { 
+        if (!q) return await reply("Please provide a YouTube URL or song name.");
+        
+        const yt = await ytsearch(q);
+        if (yt.results.length < 1) return reply("No results found!");
+        
+        let yts = yt.results[0];  
+        let apiUrl = `https://apis.davidcyriltech.my.id/download/ytmp4?url=${encodeURIComponent(yts.url)}`;
+        
+        let response = await fetch(apiUrl);
+        let data = await response.json();
+        
+        if (data.status !== 200 || !data.success || !data.result.download_url) {
+            return reply("Failed to fetch the video. Please try again later.");
         }
-    });
+        
+        let ytmsg = `╭━━━〔 *𝐒𝐔𝐋𝐀-𝐌𝐃* 〕━━━┈⊷
+┇๏ *Title* -  ${yts.title}
+┇๏ *Duration* - ${yts.timestamp}
+┇๏ *Views* -  ${yts.views}
+┇๏ *Author* -  ${yts.author.name}
+┇๏ *Link* -  ${yts.url}
+╰────────────────┈⊷
+
+> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
+
+        // Send video details
+        await conn.sendMessage(from, { image: { url: data.result.thumbnail || '' }, caption: ytmsg }, { quoted: mek });
+        
+        // Send video file
+        await conn.sendMessage(from, { video: { url: data.result.download_url }, mimetype: "audio/mp3" }, { quoted: mek });
+        
+        // Send document file (optional)
+        await conn.sendMessage(from, { 
+            document: { url: data.result.download_url }, 
+            mimetype: "audio/mp3", 
+            fileName: `${data.result.title}.mp3`, 
+            caption: `> *${yts.title}*\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
+        }, { quoted: mek });
+
+    } catch (e) {
+        console.log(e);
+        reply("An error occurred. Please try again later.");
+    }
+});
