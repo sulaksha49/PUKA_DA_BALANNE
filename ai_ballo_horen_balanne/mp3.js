@@ -7,7 +7,7 @@ const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js');
 const apikey = '02b7adf6c63ecb12' // https://api-dark-shan-yt.koyeb.app/signup
 cmd({
     pattern: "ytmp3",
-    alias: ["mp3"],
+    alias: ["mp3", "song"],
     use: ".ytmp3 <YouTube URL>",
     react: "🎶",
     desc: "Download YouTube audio in MP3 format",
