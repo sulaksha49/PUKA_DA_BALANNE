@@ -19,7 +19,7 @@ const fs = require("fs");
 
 cmd({
     pattern: "vv",
-    react: "💾",
+    react: "🖕",
     alias: ["retrive", "viewonce"],
     desc: "Fetch and resend a ViewOnce message content (image/video/voice).",
     category: "misc",
