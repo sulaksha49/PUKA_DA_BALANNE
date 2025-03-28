@@ -38,3 +38,29 @@ try{
     }
 });
 
+command(
+  {
+    pattern: "kick",
+    fromMe: true,
+    desc: "kicks a person from group",
+    type: "group",
+  },
+  async (message, match) => {
+    if (!message.isGroup)
+      return await message.reply("_This command is for groups_");
+
+    match = match || message.reply_message.jid;
+    if (!match) return await message.reply("_Mention user to kick_");
+
+    const isadmin = await isAdmin(message.jid, message.user, message.client);
+
+    if (!isadmin) return await message.reply("_I'm not admin_");
+    const jid = parsedJid(match);
+
+    await message.client.groupParticipantsUpdate(message.jid, jid, "remove");
+
+    return await message.reply(`_@${jid[0].split("@")[0]} kicked_`, {
+      mentions: [jid],
+    });
+  }
+);
