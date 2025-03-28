@@ -163,6 +163,12 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
                     case '10.4':
                         reply(".update AUTO_STATUS_REPLY:fales");
                     break;
+                    case '11.1':
+                        reply(".ANTI_BAD:true");
+                    break;
+                     case '11.2':
+                        reply(".ANTI_BAD:fales");
+                    break;
 
                     default:
                         reply("Invalid option. Please select a valid option🔴");
