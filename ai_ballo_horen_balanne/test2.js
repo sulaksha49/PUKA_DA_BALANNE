@@ -29,11 +29,11 @@ const xv_info = await fetchJson(`${apilink}/download/xvideo?url=${xv_list.result
   // FIRST VIDEO
   
 const msg = `
-         *𝐒𝐔𝐋𝐀-𝐌𝐃 XVIDEO DOWNLOADER*
+        🔞 *𝐒𝐔𝐋𝐀-𝐌𝐃 XVIDEO DOWNLOADER* 🔞
     
-🥵*Title* - ${xv_info.result.title}
-🥵*Views* - ${xv_info.result.views}
-🥵*Like* - ${xv_info.result.like}
+🥵 *Title* - ${xv_info.result.title}
+🥵 *Views* - ${xv_info.result.views}
+🥵 *Like* - ${xv_info.result.like}
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈`
 
