@@ -131,24 +131,3 @@ cmd(
         }
     }
 );
-
-command(
-  {
-    pattern: "mp3",
-    fromMe: isPrivate,
-    desc: "converts video/voice to mp3",
-    type: "downloader",
-  },
-  async (message, match, m) => {
-    let buff = await m.quoted.download();
-    console.log(typeof buff);
-    buff = await toAudio(buff, "mp3");
-    console.log(typeof buff);
-    return await message.sendMessage(
-      message.jid,
-      buff,
-      { mimetype: "audio/mpeg" },
-      "audio"
-    );
-  }
-);
