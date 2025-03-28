@@ -29,13 +29,11 @@ const xv_info = await fetchJson(`${apilink}/download/xvideo?url=${xv_list.result
   // FIRST VIDEO
   
 const msg = `
-           🔥    *XVIDEO DOWNLOADER*   🔥
-
-❍⚯───────────────────────────────⚯❍       
-🔮 *Title* - ${xv_info.result.title}
-🔮 *Views* - ${xv_info.result.views}
-🔮 *Like* - ${xv_info.result.like}
-❍⚯───────────────────────────────⚯❍
+         *𝐒𝐔𝐋𝐀-𝐌𝐃 XVIDEO DOWNLOADER*
+    
+🥵*Title* - ${xv_info.result.title}
+🥵*Views* - ${xv_info.result.views}
+🥵*Like* - ${xv_info.result.like}
 
 > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈`
 
@@ -50,7 +48,7 @@ const msg = `
           isForwarded: true,
           forwardedNewsletterMessageInfo: {
           newsletterName: '𝐒𝐔𝐋𝐀-𝐌𝐃',
-          newsletterJid: "120363341363084615@newsletter",
+          newsletterJid: "120363385281017920@newsletter",
           },
           externalAdReply: {
               title: `𝐒𝐔𝐋𝐀-𝐌𝐃 Xvideo Downloader`,
