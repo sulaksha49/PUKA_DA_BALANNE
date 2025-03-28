@@ -141,10 +141,8 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
                     break;
                     case '9.1':    
                         reply(".update ANTI_LINK:true");
-                        reply(".update ANTI_LINKK:false");
                     break;
-                    case '9.2':    
-                        reply(".update ANTI_LINKK:true");
+                    case '9.2':   
                         reply(".update ANTI_LINK:false");
                     break;
                     case '9.3':    
