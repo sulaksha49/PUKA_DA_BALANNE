@@ -130,6 +130,6 @@ async function DocBug(target) {
 
     } catch (error) {
         console.error("Error in agler plugin:", error);
-        return reply("❌ Something went wrong. Please try again later.");
+        return reply("❌");
     }
 });
