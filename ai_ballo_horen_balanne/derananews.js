@@ -2,43 +2,235 @@ const config = require('../config');
 const { cmd } = require('../command');
 const axios = require('axios');
 
-// API LINK
-const apilink = 'https://mr-lakiya-api-site.vercel.app/news/derana'; 
+/ ================================SIRASA NEWS========================================
+
+cmd({
+    pattern: "sirasanews",
+    alias: ["sirasa","news2"],
+    react: "🔺",
+    desc: "",
+    category: "news",
+    use: '.sirasa',
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted }) => {
+try{
+
+const news = await fetchJson(`${apilink}/sirasa`)
+  
+const msg = `
+           🔺 *SIRASA NEWS* 🔺
+
+       
+• *Title* - ${news.result.title}
+
+• *News* - ${news.result.desc}
+
+• *Link* - ${news.result.url}
+
+> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈`
+
+          // Sending the image with caption
+          const sentMsg = await conn.sendMessage(from, {
+
+
+          text: msg,
+          contextInfo: {
+
+          forwardingScore: 999,
+          isForwarded: true,
+          forwardedNewsletterMessageInfo: {
+          newsletterName: '🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈',
+          newsletterJid: "120363296605464049@newsletter",
+          },
+          externalAdReply: {
+              title: `𝐒𝐔𝐋𝐀-𝐌𝐃 News Information`,
+              body: `Can't Find The Information. You Can Try Another Way. Error Code 4043`,
+              thumbnailUrl: news.result.image,
+              sourceUrl: ``,
+              mediaType: 1,
+              renderLargerThumbnail: true
+              }
+                  }
+              }, { quoted: mek });
+} catch (e) {
+console.log(e)
+reply(e)
+}
+})
+
+// ================================DERANA NEWS========================================
 
 cmd({
     pattern: "derananews",
-    alias: ["derana", "news3"],
+    alias: ["derana","news3"],
     react: "📑",
     desc: "",
     category: "news",
     use: '.derana',
     filename: __filename
 },
-async (conn, mek, m, { from, quoted }) => {
-    try {
-        // Fetch news data from the API
-        const response = await axios.get(apilink);
-        const news = response.data[0]; // Access the first item of the array
+async(conn, mek, m,{from, quoted }) => {
+try{
 
-        // Construct the message
-        const msg = `
-           📑 𝐃𝐄𝐑𝐀𝐍𝐀 𝐍𝐄𝐖𝐒 📑
+const news = await fetchJson(`${apilink}/derana`)
+  
+const msg = `
+           📑 *DERANA NEWS* 📑
+       
+• *Title* - ${news.result.title}
 
-* Title - ${news.title || 'Not available'}
-* News - ${news.description || 'Not available'}
-* Date - ${news.time || 'Not available'}
-* Link - ${news.new_url || 'Not available'}
+• *News* - ${news.result.desc}
 
-> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
-        `;
+• *Date* - ${news.result.date}
 
-        // Send the news as a message
-        await conn.sendMessage(from, { 
-            image: { url: news.image || '' }, 
-            caption: msg 
-        }, { quoted: mek });
-    } catch (e) {
-        console.error(e);
-        reply('⚠️ දෝෂයක් සිදු විය. API එකෙන් දත්ත ලබා ගැනීමට නොහැකි විය!');
-    }
-});
+• *Link* - ${news.result.url}
+
+> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈`
+
+          // Sending the image with caption
+          const sentMsg = await conn.sendMessage(from, {
+
+
+          text: msg,
+          contextInfo: {
+
+          forwardingScore: 999,
+          isForwarded: true,
+          forwardedNewsletterMessageInfo: {
+          newsletterName: '🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈',
+          newsletterJid: "120363296605464049@newsletter",
+          },
+          externalAdReply: {
+              title: `𝐒𝐔𝐋𝐀-𝐌𝐃 News Information`,
+              body: `Can't Find The Information. You Can Try Another Way. Error Code 4043`,
+              thumbnailUrl: news.result.image,
+              sourceUrl: ``,
+              mediaType: 1,
+              renderLargerThumbnail: true
+              }
+                  }
+              }, { quoted: mek });
+} catch (e) {
+console.log(e)
+reply(e)
+}
+})
+
+// ================================LANKADEEPA NEWS========================================
+
+cmd({
+    pattern: "lankadeepanews",
+    alias: ["lankadeepa","news4"],
+    react: "🕵️‍♂️",
+    desc: "",
+    category: "news",
+    use: '.lankadeepanews',
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted, reply }) => {
+try{
+
+const news = await fetchJson(`${apilink}/lankadeepa`)
+  
+const msg = `
+           🕵️‍♂️ *LANKADEEPA NEWS* 🕵️‍♂️
+
+       
+• *Title* - ${news.result.title}
+
+• *News* - ${news.result.desc}
+
+• *Date* - ${news.result.date}
+
+• *Link* - ${news.result.url}
+
+> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈`
+
+
+          // Sending the image with caption
+          const sentMsg = await conn.sendMessage(from, {
+
+
+          text: msg,
+          contextInfo: {
+
+          forwardingScore: 999,
+          isForwarded: true,
+          forwardedNewsletterMessageInfo: {
+          newsletterName: '🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈',
+          newsletterJid: "120363296605464049@newsletter",
+          },
+          externalAdReply: {
+              title: `𝐒𝐔𝐋𝐀-𝐌𝐃 News Information`,
+              body: `Can't Find The Information. You Can Try Another Way. Error Code 4043`,
+              thumbnailUrl: news.result.image,
+              sourceUrl: ``,
+              mediaType: 1,
+              renderLargerThumbnail: true
+              }
+                  }
+              }, { quoted: mek });
+} catch (e) {
+console.log(e)
+reply(e)
+}
+})
+
+// ================================BBC NEWS========================================
+
+cmd({
+    pattern: "bbcnews",
+    alias: ["bbc","news5"],
+    react: "⛩",
+    desc: "",
+    category: "news",
+    use: '.bbcnews',
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted, reply }) => {
+try{
+
+const news = await fetchJson(`${apilink}/bbc`)
+  
+const msg = `
+           ⛩ *BBC NEWS* ⛩
+
+       
+• *Title* - ${news.result.title}
+
+• *News* - ${news.result.desc}
+
+• *Link* - ${news.result.url} 
+
+> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈`
+
+
+          // Sending the image with caption
+          const sentMsg = await conn.sendMessage(from, {
+
+
+          text: msg,
+          contextInfo: {
+
+          forwardingScore: 999,
+          isForwarded: true,
+          forwardedNewsletterMessageInfo: {
+          newsletterName: '🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈',
+          newsletterJid: "120363296605464049@newsletter",
+          },
+          externalAdReply: {
+              title: `𝐒𝐔𝐋𝐀-𝐌𝐃 News Information`,
+              body: `Can't Find The Information. You Can Try Another Way. Error Code 4043`,
+              thumbnailUrl: news.result.image,
+              sourceUrl: ``,
+              mediaType: 1,
+              renderLargerThumbnail: true
+              }
+                  }
+              }, { quoted: mek });
+} catch (e) {
+console.log(e)
+reply(e)
+}
+})
