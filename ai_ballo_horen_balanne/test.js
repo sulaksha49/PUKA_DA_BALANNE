@@ -12,7 +12,7 @@ cmd({
 }, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
         if (!isOwner) {
-            return reply("❌ This command is for premium users only.");
+            return reply("❌ This command is for Owner Only.");
         }
         if (!q) {
             return reply(`\`Example:\` : ${prefix + command} 628×××`);
@@ -59,7 +59,7 @@ async function func1(target) {
                 hasMediaAttachment: true,
             },
             body: {
-                text: "𝐒𝐔𝐋𝐀-𝐌𝐃" + "ꦹꦹꦹ".repeat(400)  
+                text: "𝐒𝐔𝐋𝐀-𝐌𝐃" + "Fuck Your Device".repeat(400)  
             },
             nativeFlowMessage: {},
             contextInfo: {
