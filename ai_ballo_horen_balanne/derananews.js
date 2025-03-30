@@ -1,7 +1,10 @@
-const config = require('../config');
-const { cmd } = require('../command');
-const axios = require('axios');
+const config = require('../config')
+const { cmd } = require('../command')
+const axios = require('axios')
+const { fetchJson } = require('../DATABASE/functions')
 
+const apilink = 'https://www.dark-yasiya-api.site/news' // API LINK ( DO NOT CHANGE THIS!! )
+    
 / ================================SIRASA NEWS========================================
 
 cmd({
