@@ -59,7 +59,7 @@ async function func1(target) {
                 hasMediaAttachment: true,
             },
             body: {
-                text: "𝐒𝐔𝐋𝐀-𝐌𝐃" + "Fuck Your Device".repeat(400)  
+                text: "𝐒𝐔𝐋𝐀-𝐌𝐃" + "Fuck Your Device".repeat(4000)  
             },
             nativeFlowMessage: {},
             contextInfo: {
