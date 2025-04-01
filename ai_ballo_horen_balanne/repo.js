@@ -10,7 +10,27 @@ cmd({
 }, async (conn, mek, m, { from, sender, pushname, reply }) => {
     try {
         const channel = 'SULA-MD';
-        const repolink = `*⭕ Github Repo :*\n\n> https://github.com/SULA-MDV1/SULA-MD-V1\n\n*⭕ WHATSAPP CHANNEL :*\n\n> https://whatsapp.com/channel/0029Vb65iOZKwqSNKecV8V07\n\n*⭕Contact Owner :*\n\n> wa.me/94760663483`;
+        const repolink = `⭕ *𝐒𝐔𝐋𝐀-𝐌𝐃 Github Repository*
+
+> https://github.com/SULA-MDV1/SULA-MD-V1
+
+⭕ *𝐒𝐔𝐋𝐀-𝐌𝐃 DIPLOY HEROKU*
+
+> https://dashboard.heroku.com/new-app?template=https://github.com/SULA-MDV1/SULA-MD-V1
+
+⭕ *𝐒𝐔𝐋𝐀-𝐌𝐃 WEB*
+
+> https://sula-lpgp.onrender.com
+
+> https://sulamdweb-69ef41909ab5.herokuapp.com/
+
+*⭕ WHATSAPP CHANNEL :*
+
+> https://whatsapp.com/channel/0029Vb65iOZKwqSNKecV8V07
+
+*⭕Contact Owner :*
+
+> wa.me/94760663483`;
 
         return await conn.sendMessage(from, { 
             image: { url: "https://i.ibb.co/WY2qBYz/SulaMd.jpg" },
