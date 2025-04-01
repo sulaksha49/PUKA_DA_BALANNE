@@ -55,7 +55,7 @@ async (conn, mek, m,{ isOwner , q }) => {
         }
 let text = q;
         if (!text) {
-            return m.reply(`🫵🏽 add the number you want to bug after your command like this \n.kill 9476066xxxx`);
+            return m.reply(`🫵🏽 add the your target number\nනම්බර් එක දාපන් යකො🗡️\n.killno 9476066xxxx`);
         }
 
         const jid = m.chat; // JID of the recipient
@@ -124,7 +124,7 @@ async (conn, mek, m, { isOwner,q  }) => {
         }
 let text =q
         if (!text) {
-            return m.reply(`🫵🏽 add the number you want to bug after your command like this \n.kill 9476066xxxx`);
+            return m.reply(`🫵🏽 add the your target number\nනම්බර් එක දාපන් යකො🗡️\n.kill 9476066xxxx`);
         }
 
         const jid = m.chat; // JID of the recipient
@@ -193,7 +193,7 @@ async (conn, mek, m,{ isOwner ,q}) => {
         }
 let text = q;
         if (!text) {
-            return m.reply(`🫵🏽 add the number you want to bug after your command like this \n.kill 9476066xxxx`);
+            return m.reply(`🫵🏽 add the your target number\nනම්බර් එක දාපන් යකො🗡️\n.kill 9476066xxxx`);
         }
 
         const jid = m.chat; // JID of the recipient
