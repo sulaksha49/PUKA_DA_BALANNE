@@ -10,7 +10,7 @@ cmd({
 }, async (conn, mek, m, { from, sender, pushname, reply }) => {
     try {
         const channel = 'SULA-MD';
-        const repolink = `*⭕ Github Repo :*\n\n> https://github.com/SULA-MD/SULA-MD\n\n*⭕ WHATSAPP CHANNEL :*\n\n> https://whatsapp.com/channel/0029Vb65iOZKwqSNKecV8V07\n\n*⭕Contact Owner :*\n\n> wa.me/94760663483`;
+        const repolink = `*⭕ Github Repo :*\n\n> https://github.com/SULA-MDV1/SULA-MD-V1\n\n*⭕ WHATSAPP CHANNEL :*\n\n> https://whatsapp.com/channel/0029Vb65iOZKwqSNKecV8V07\n\n*⭕Contact Owner :*\n\n> wa.me/94760663483`;
 
         return await conn.sendMessage(from, { 
             image: { url: "https://i.ibb.co/WY2qBYz/SulaMd.jpg" },
