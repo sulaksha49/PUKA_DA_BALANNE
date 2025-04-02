@@ -52,7 +52,7 @@ async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, send
             forwardedNewsletterMessageInfo: fdChannel
         };
         const msgBody = {
-            image: {url:`"https://i.ibb.co/WY2qBYz/SulaMd.jpg`},
+            image: {url:`https://i.ibb.co/WY2qBYz/SulaMd.jpg`},
             caption: logoMsg,
             contextInfo: contextMsg
         };
