@@ -1,4 +1,4 @@
-const { cmd } = require('../lib/command');
+const { cmd } = require('../command');
 const fs = require('fs');
 const fileType = require('file-type');
 const axios = require('axios');
