@@ -33,7 +33,7 @@ cmd({
 
     if (status !== 200) return reply('❌ Failed to remove background.');
 
-    await sock.sendMessage(from, { image: data, caption: '> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʟᴀᴋᴀ-ᴍᴅ' }, { quoted: message });
+    await sock.sendMessage(from, { image: data, caption: '> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀-𝐌𝐃 😈' }, { quoted: message });
   } catch (error) {
     console.error('Error:', error);
     reply('❌ An error occurred while processing the image.');
